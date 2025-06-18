@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <h1 class="page-title">Ricerca Contenuti</h1>
+    <p class="page-subtitle">Cerca nel contenuto di tutte le fonti elaborate</p>
+</div>
+
+<div class="action-card" style="max-width: 600px; margin: 0 auto;">
+    <form action="/search/results" method="post">
+        <div class="form-group">
+            <label class="form-label">Termini di ricerca</label>
+            <input type="text" name="q" class="form-input" required minlength="3" 
+                   placeholder="Inserisci almeno 3 caratteri...">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">🔍 Cerca</button>
+    </form>
+</div>
+{% endblock %}

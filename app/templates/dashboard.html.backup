@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Research Platform</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #0d1117;
+            color: #e6edf3;
+            line-height: 1.5;
+        }
+        .header {
+            background-color: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #f0f6fc;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .logo::before {
+            content: "🚀";
+            margin-right: 8px;
+            font-size: 24px;
+        }
+        .nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        .nav-link {
+            color: #e6edf3;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+            font-size: 14px;
+        }
+        .nav-link:hover {
+            background-color: #21262d;
+            color: #f0f6fc;
+        }
+        .nav-link.active {
+            background-color: #1f6feb;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+        .page-header {
+            margin-bottom: 32px;
+        }
+        .page-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 8px;
+        }
+        .page-subtitle {
+            color: #7d8590;
+            font-size: 16px;
+        }
+        .network-info {
+            background: linear-gradient(135deg, #1f6feb, #7c3aed);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+            color: white;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stat-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
+            transition: border-color 0.15s ease;
+        }
+        .stat-card:hover {
+            border-color: #7d8590;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #7d8590;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #f0f6fc;
+        }
+        .actions-section {
+            margin-bottom: 32px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .action-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+            transition: all 0.15s ease;
+        }
+        .action-card:hover {
+            border-color: #7d8590;
+            transform: translateY(-1px);
+        }
+        .action-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .action-icon {
+            margin-right: 12px;
+            font-size: 20px;
+        }
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f0f6fc;
+        }
+        .action-description {
+            color: #7d8590;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: 1px solid transparent;
+            text-decoration: none;
+            margin: 4px 8px 4px 0;
+        }
+        .btn-primary {
+            background-color: #238636;
+            color: #ffffff;
+            border-color: #238636;
+        }
+        .btn-primary:hover {
+            background-color: #2ea043;
+            border-color: #2ea043;
+        }
+        .btn-secondary {
+            background-color: #21262d;
+            color: #f0f6fc;
+            border-color: #30363d;
+        }
+        .btn-secondary:hover {
+            background-color: #30363d;
+            border-color: #7d8590;
+        }
+        .projects-list {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .project-item {
+            padding: 16px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.15s ease;
+        }
+        .project-item:last-child {
+            border-bottom: none;
+        }
+        .project-item:hover {
+            background-color: #21262d;
+        }
+        .project-info h3 {
+            color: #f0f6fc;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .project-meta {
+            color: #7d8590;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/dashboard" class="logo">AI Research Platform</a>
+            <nav class="nav">
+                <a href="/dashboard" class="nav-link active">Dashboard</a>
+                <a href="/projects/view" class="nav-link">Progetti</a>
+                <a href="/search/view" class="nav-link">Ricerca</a>
+                <a href="/import" class="nav-link">Importa</a>
+                <a href="/docs" class="nav-link" target="_blank">API</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="network-info">
+            <strong>🌐 Accesso di Rete Attivo</strong><br>
+            Server VM: 192.168.1.20:8000 • Accessibile da tutta la rete locale
+        </div>
+
+        <div class="page-header">
+            <h1 class="page-title">Dashboard</h1>
+            <p class="page-subtitle">Piattaforma AI di ricerca - Accesso rete locale</p>
+        </div>
+
+        {%% if stats %%}
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Progetti Totali</div>
+                <div class="stat-value">{{ stats.total_projects }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Fonti Totali</div>
+                <div class="stat-value">{{ stats.total_sources }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Con Contenuto</div>
+                <div class="stat-value">{{ stats.sources_with_content }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Da Elaborare</div>
+                <div class="stat-value">{{ stats.sources_without_content }}</div>
+            </div>
+        </div>
+        {%% endif %%}
+
+        <div class="actions-section">
+            <h2 class="section-title">🚀 Azioni Rapide</h2>
+            <div class="actions-grid">
+                <div class="action-card">
+                    <div class="action-header">
+                        <span class="action-icon">📁</span>
+                        <span class="action-title">Gestisci Progetti</span>
+                    </div>
+                    <div class="action-description">
+                        Visualizza e gestisci tutti i progetti di ricerca
+                    </div>
+                    <a href="/projects/view" class="btn btn-primary">Visualizza Progetti</a>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-header">
+                        <span class="action-icon">📥</span>
+                        <span class="action-title">Importa Dati</span>
+                    </div>
+                    <div class="action-description">
+                        Carica fonti da file Excel, CSV o altri formati
+                    </div>
+                    <a href="/import" class="btn btn-primary">Importa File</a>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-header">
+                        <span class="action-icon">🔍</span>
+                        <span class="action-title">Ricerca Contenuti</span>
+                    </div>
+                    <div class="action-description">
+                        Cerca nel contenuto di tutte le fonti elaborate
+                    </div>
+                    <a href="/search/view" class="btn btn-primary">Avvia Ricerca</a>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-header">
+                        <span class="action-icon">📊</span>
+                        <span class="action-title">API Documentation</span>
+                    </div>
+                    <div class="action-description">
+                        Documentazione tecnica API per integrazioni
+                    </div>
+                    <a href="/docs" class="btn btn-primary" target="_blank">Apri Docs</a>
+                </div>
+            </div>
+        </div>
+
+        {%% if projects %%}
+        <div class="actions-section">
+            <h2 class="section-title">📁 Progetti Recenti</h2>
+            <div class="projects-list">
+                {%% for project in projects[:5] %%}
+                <div class="project-item">
+                    <div class="project-info">
+                        <h3>{{ project.name }}</h3>
+                        <div class="project-meta">
+                            {{ project.description or 'Nessuna descrizione' }} • {{ project.sources|length }} fonti
+                        </div>
+                    </div>
+                    <div>
+                        <a href="/projects/{{ project.id }}/view" class="btn btn-secondary">Visualizza</a>
+                    </div>
+                </div>
+                {%% endfor %%}
+            </div>
+        </div>
+        {%% endif %%}
+    </main>
+
+    <script>
+        // Configurazione per accesso di rete
+        const API_BASE_URL = "http://192.168.1.20:8000";
+        
+        // Aggiorna statistiche ogni 30 secondi
+        setInterval(async function() {
+            try {
+                const response = await fetch(API_BASE_URL + '/api/stats');
+                const stats = await response.json();
+                
+                const statValues = document.querySelectorAll('.stat-value');
+                if (statValues.length >= 4) {
+                    statValues[0].textContent = stats.total_projects;
+                    statValues[1].textContent = stats.total_sources;
+                    statValues[2].textContent = stats.sources_with_content;
+                    statValues[3].textContent = stats.sources_without_content;
+                }
+            } catch (error) {
+                console.log('Errore aggiornamento statistiche:', error);
+            }
+        }, 30000);
+
+        // Test connettività di rete
+        async function testNetworkConnectivity() {
+            try {
+                const response = await fetch(API_BASE_URL + '/api/stats');
+                if (response.ok) {
+                    console.log('✅ Connessione di rete OK');
+                    return true;
+                }
+            } catch (error) {
+                console.error('❌ Errore connessione di rete:', error);
+                return false;
+            }
+        }
+
+        // Test iniziale
+        document.addEventListener('DOMContentLoaded', function() {
+            testNetworkConnectivity();
+        });
+    </script>
+</body>
+</html>

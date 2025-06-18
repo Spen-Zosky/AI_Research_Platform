@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <h1 class="page-title">Gestione Progetti</h1>
+    <p class="page-subtitle">Tutti i progetti di ricerca</p>
+</div>
+
+{% if projects %}
+<div class="projects-list">
+    {% for project in projects %}
+    <div class="project-item">
+        <div class="project-info">
+            <h3>{{ project.name }}</h3>
+            <div class="project-meta">
+                {{ project.description or 'Nessuna descrizione' }} • 
+                {{ project.sources|length }} fonti • 
+                Creato il {{ project.created_at.strftime('%d/%m/%Y') }}
+            </div>
+        </div>
+        <div>
+            <a href="/projects/{{ project.id }}/view" class="btn btn-primary">Visualizza</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="alert info">
+    <strong>Nessun progetto trovato</strong><br>
+    Inizia creando il tuo primo progetto dalla dashboard.
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sistema Web Scraping</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background-color: #0d1117;
+            color: #e6edf3;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background-color: #161b22;
+            border-right: 1px solid #30363d;
+            padding: 24px 16px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .sidebar-logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #7c3aed, #3b82f6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f0f6fc;
+        }
+
+        .nav-section {
+            margin-bottom: 24px;
+        }
+
+        .nav-section-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #7d8590;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            padding-left: 8px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #e6edf3;
+            text-decoration: none;
+            margin-bottom: 2px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-size: 14px;
+        }
+
+        .nav-item:hover {
+            background-color: #21262d;
+            color: #f0f6fc;
+        }
+
+        .nav-item.active {
+            background-color: #1f6feb;
+            color: #ffffff;
+        }
+
+        .nav-item-icon {
+            margin-right: 12px;
+            font-size: 16px;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            background-color: #0d1117;
+        }
+
+        .header {
+            background-color: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f0f6fc;
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            color: #7d8590;
+            margin-top: 2px;
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        /* Status Cards */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .status-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
+            transition: border-color 0.15s ease;
+        }
+
+        .status-card:hover {
+            border-color: #7d8590;
+        }
+
+        .status-label {
+            font-size: 12px;
+            color: #7d8590;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .status-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #f0f6fc;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-change {
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .status-change.positive {
+            color: #3fb950;
+        }
+
+        .status-change.negative {
+            color: #f85149;
+        }
+
+        /* Action Panels */
+        .action-section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .action-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+            transition: all 0.15s ease;
+        }
+
+        .action-card:hover {
+            border-color: #7d8590;
+            transform: translateY(-1px);
+        }
+
+        .action-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .action-icon {
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        .action-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #f0f6fc;
+        }
+
+        .action-description {
+            font-size: 12px;
+            color: #7d8590;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: 1px solid transparent;
+            text-decoration: none;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background-color: #238636;
+            color: #ffffff;
+            border-color: #238636;
+        }
+
+        .btn-primary:hover {
+            background-color: #2ea043;
+            border-color: #2ea043;
+        }
+
+        .btn-secondary {
+            background-color: #21262d;
+            color: #f0f6fc;
+            border-color: #30363d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #30363d;
+            border-color: #7d8590;
+        }
+
+        .btn-danger {
+            background-color: #da3633;
+            color: #ffffff;
+            border-color: #da3633;
+        }
+
+        .btn-danger:hover {
+            background-color: #f85149;
+            border-color: #f85149;
+        }
+
+        /* Log Panel */
+        .log-panel {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 24px;
+        }
+
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .log-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #f0f6fc;
+        }
+
+        .log-clear {
+            font-size: 12px;
+            color: #7d8590;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background-color 0.15s ease;
+        }
+
+        .log-clear:hover {
+            background-color: #21262d;
+        }
+
+        .log-content {
+            background-color: #0d1117;
+            border-radius: 4px;
+            padding: 12px;
+            height: 200px;
+            overflow-y: auto;
+            font-family: 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .log-entry {
+            margin-bottom: 4px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .log-time {
+            color: #7d8590;
+            flex-shrink: 0;
+        }
+
+        .log-message {
+            color: #e6edf3;
+        }
+
+        .log-message.success {
+            color: #3fb950;
+        }
+
+        .log-message.error {
+            color: #f85149;
+        }
+
+        .log-message.warning {
+            color: #d29922;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(1, 4, 9, 0.8);
+            backdrop-filter: blur(4px);
+            display: none;
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .modal-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f0f6fc;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #7d8590;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.15s ease;
+        }
+
+        .modal-close:hover {
+            background-color: #30363d;
+            color: #f0f6fc;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: #f0f6fc;
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 8px 12px;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #e6edf3;
+            font-size: 14px;
+            transition: border-color 0.15s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #1f6feb;
+            box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.3);
+        }
+
+        .form-input::placeholder {
+            color: #7d8590;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 20px;
+            padding-top: 12px;
+            border-top: 1px solid #30363d;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #30363d;
+            border-top: 2px solid #1f6feb;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Alert */
+        .alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            max-width: 400px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 2000;
+            transform: translateX(100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            border-left: 4px solid;
+        }
+
+        .alert.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .alert.success {
+            background-color: #0f2419;
+            color: #3fb950;
+            border-color: #3fb950;
+        }
+
+        .alert.error {
+            background-color: #2b0f0f;
+            color: #f85149;
+            border-color: #f85149;
+        }
+
+        .alert.warning {
+            background-color: #2b1f0f;
+            color: #d29922;
+            border-color: #d29922;
+        }
+
+        .alert.info {
+            background-color: #0f1419;
+            color: #1f6feb;
+            border-color: #1f6feb;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .status-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #161b22;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #484f58;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">🚀</div>
+                <div class="sidebar-title">Sistema Dashboard</div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Overview</div>
+                <a href="#" class="nav-item active" onclick="showSection('dashboard')">
+                    <span class="nav-item-icon">📊</span>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('monitoring')">
+                    <span class="nav-item-icon">📈</span>
+                    Monitoraggio
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Operazioni</div>
+                <a href="#" class="nav-item" onclick="showSection('import')">
+                    <span class="nav-item-icon">📥</span>
+                    Importazione
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('crawler')">
+                    <span class="nav-item-icon">🕷️</span>
+                    Web Crawling
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('nlp')">
+                    <span class="nav-item-icon">🧠</span>
+                    Analisi NLP
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Gestione</div>
+                <a href="#" class="nav-item" onclick="showSection('database')">
+                    <span class="nav-item-icon">🗄️</span>
+                    Database
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('maintenance')">
+                    <span class="nav-item-icon">🔧</span>
+                    Manutenzione
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('config')">
+                    <span class="nav-item-icon">⚙️</span>
+                    Configurazione
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-content">
+                    <div>
+                        <h1 class="header-title" id="page-title">Dashboard</h1>
+                        <p class="header-subtitle" id="page-subtitle">Panoramica generale del sistema</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content">
+                <!-- Dashboard Section -->
+                <div id="dashboard-section" class="section">
+                    <div class="status-grid">
+                        <div class="status-card">
+                            <div class="status-label">Progetti</div>
+                            <div class="status-value">
+                                <span id="projects-count">-</span>
+                            </div>
+                            <div class="status-change positive">+2 questa settimana</div>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-label">Fonti Totali</div>
+                            <div class="status-value">
+                                <span id="sources-count">-</span>
+                            </div>
+                            <div class="status-change positive">+47 questa settimana</div>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-label">Con Contenuto</div>
+                            <div class="status-value">
+                                <span id="content-count">-</span>
+                            </div>
+                            <div class="status-change positive">+23 oggi</div>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-label">Stato API</div>
+                            <div class="status-value">
+                                <span id="api-status">🔴</span>
+                                <span id="api-status-text">Offline</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-section">
+                        <h2 class="section-title">🚀 Azioni Rapide</h2>
+                        <div class="action-grid">
+                            <div class="action-card">
+                                <div class="action-header">
+                                    <span class="action-icon">🔧</span>
+                                    <span class="action-title">Setup Sistema</span>
+                                </div>
+                                <div class="action-description">
+                                    Inizializza e configura il sistema completo
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary" onclick="runSetup()">
+                                        <span class="loading-spinner" style="display: none;"></span>
+                                        Setup Completo
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="checkSystem()">Verifica</button>
+                                </div>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-header">
+                                    <span class="action-icon">🕷️</span>
+                                    <span class="action-title">Web Crawling</span>
+                                </div>
+                                <div class="action-description">
+                                    Avvia il crawling delle fonti web
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary" onclick="showCrawlerModal()">Avvia Crawler</button>
+                                    <button class="btn btn-secondary" onclick="crawlSingleSource()">Fonte Singola</button>
+                                </div>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-header">
+                                    <span class="action-icon">🧠</span>
+                                    <span class="action-title">Analisi NLP</span>
+                                </div>
+                                <div class="action-description">
+                                    Estrazione entità e parole chiave
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary" onclick="showNLPModal()">Analizza</button>
+                                    <button class="btn btn-secondary" onclick="extractEntities()">Solo Entità</button>
+                                </div>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-header">
+                                    <span class="action-icon">🔍</span>
+                                    <span class="action-title">Manutenzione</span>
+                                </div>
+                                <div class="action-description">
+                                    Health check e ottimizzazione sistema
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary" onclick="runMaintenance()">Esegui</button>
+                                    <button class="btn btn-secondary" onclick="healthCheck()">Health Check</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Import Section -->
+                <div id="import-section" class="section" style="display: none;">
+                    <div class="action-section">
+                        <h2 class="section-title">📥 Importazione Dati</h2>
+                        <div class="action-grid">
+                            <div class="action-card">
+                                <div class="action-header">
+                                    <span class="action-icon">📊</span>
+                                    <span class="action-title">Excel / CSV</span>
+                                </div>
+                                <div class="action-description">
+                                    Importa dati da file Excel o CSV con mapping automatico delle colonne
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary" onclick="showImportModal('excel')">Seleziona File</button>
+                                </div>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-header">
+                                    <span class="action-icon">📝</span>
+                                    <span class="action-title">Markdown</span>
+                                </div>
+                                <div class="action-description">
+                                    Importa fonti da file Markdown con tabelle strutturate
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary" onclick="showImportModal('markdown')">Seleziona File</button>
+                                </div>
+                            </div>
+
+                            <div class="action-card">
+                                <div class="action-header">
+                                    <span class="action-icon">🔄</span>
+                                    <span class="action-title">Batch Import</span>
+                                </div>
+                                <div class="action-description">
+                                    Importa multipli file in una singola operazione
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary" onclick="batchImport()">Avvia Batch</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Sections (hidden by default) -->
+                <div id="crawler-section" class="section" style="display: none;">
+                    <div class="action-section">
+                        <h2 class="section-title">🕷️ Web Crawling</h2>
+                        <!-- Crawler content -->
+                    </div>
+                </div>
+
+                <div id="nlp-section" class="section" style="display: none;">
+                    <div class="action-section">
+                        <h2 class="section-title">🧠 Analisi NLP</h2>
+                        <!-- NLP content -->
+                    </div>
+                </div>
+
+                <div id="database-section" class="section" style="display: none;">
+                    <div class="action-section">
+                        <h2 class="section-title">🗄️ Database</h2>
+                        <!-- Database content -->
+                    </div>
+                </div>
+
+                <div id="maintenance-section" class="section" style="display: none;">
+                    <div class="action-section">
+                        <h2 class="section-title">🔧 Manutenzione</h2>
+                        <!-- Maintenance content -->
+                    </div>
+                </div>
+
+                <div id="config-section" class="section" style="display: none;">
+                    <div class="action-section">
+                        <h2 class="section-title">⚙️ Configurazione</h2>
+                        <!-- Configuration content -->
+                    </div>
+                </div>
+
+                <div id="monitoring-section" class="section" style="display: none;">
+                    <div class="action-section">
+                        <h2 class="section-title">📈 Monitoraggio</h2>
+                        <!-- Monitoring content -->
+                    </div>
+                </div>
+
+                <!-- Log Panel -->
+                <div class="log-panel">
+                    <div class="log-header">
+                        <span class="log-title">📋 Log Sistema</span>
+                        <span class="log-clear" onclick="clearLogs()">Pulisci</span>
+                    </div>
+                    <div class="log-content" id="log-content">
+                        <div class="log-entry">
+                            <span class="log-time">[12:00:00]</span>
+                            <span class="log-message">Sistema dashboard avviato</span>
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">[12:00:01]</span>
+                            <span class="log-message">In attesa di comandi...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="import-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">📥 Importazione Dati</h3>
+                <button class="modal-close" onclick="closeModal('import-modal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Fonte Specifica (opzionale)</label>
+                <input type="number" class="form-input" id="nlp-source-id" placeholder="ID fonte (lascia vuoto per tutte)">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Tipo Analisi</label>
+                <select class="form-input" id="nlp-type">
+                    <option value="entities">Estrazione Entità</option>
+                    <option value="keywords">Parole Chiave</option>
+                    <option value="both">Entrambi</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('nlp-modal')">Annulla</button>
+                <button class="btn btn-primary" onclick="executeNLP()">Avvia Analisi</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const API_BASE_URL = 'http://127.0.0.1:8000';
+        let currentSection = 'dashboard';
+
+        // Section Management
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show selected section
+            document.getElementById(sectionName + '-section').style.display = 'block';
+
+            // Update navigation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update header
+            const titles = {
+                'dashboard': { title: 'Dashboard', subtitle: 'Panoramica generale del sistema' },
+                'import': { title: 'Importazione Dati', subtitle: 'Gestione import da file esterni' },
+                'crawler': { title: 'Web Crawling', subtitle: 'Estrazione contenuti da fonti web' },
+                'nlp': { title: 'Analisi NLP', subtitle: 'Estrazione entità e parole chiave' },
+                'database': { title: 'Database', subtitle: 'Gestione e manutenzione database' },
+                'maintenance': { title: 'Manutenzione', subtitle: 'Health check e ottimizzazione' },
+                'config': { title: 'Configurazione', subtitle: 'Impostazioni sistema' },
+                'monitoring': { title: 'Monitoraggio', subtitle: 'Statistiche e performance' }
+            };
+
+            const titleInfo = titles[sectionName] || { title: 'Dashboard', subtitle: 'Sistema Web Scraping' };
+            document.getElementById('page-title').textContent = titleInfo.title;
+            document.getElementById('page-subtitle').textContent = titleInfo.subtitle;
+
+            currentSection = sectionName;
+            logMessage(`Navigazione: ${titleInfo.title}`);
+        }
+
+        // Logging Functions
+        function logMessage(message, type = 'info') {
+            const logContent = document.getElementById('log-content');
+            const timestamp = new Date().toLocaleTimeString();
+            
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            
+            const timeSpan = document.createElement('span');
+            timeSpan.className = 'log-time';
+            timeSpan.textContent = `[${timestamp}]`;
+            
+            const messageSpan = document.createElement('span');
+            messageSpan.className = `log-message ${type}`;
+            messageSpan.textContent = message;
+            
+            logEntry.appendChild(timeSpan);
+            logEntry.appendChild(messageSpan);
+            logContent.appendChild(logEntry);
+            
+            // Auto scroll to bottom
+            logContent.scrollTop = logContent.scrollHeight;
+            
+            // Limit log entries to 50
+            const entries = logContent.querySelectorAll('.log-entry');
+            if (entries.length > 50) {
+                entries[0].remove();
+            }
+        }
+
+        function clearLogs() {
+            document.getElementById('log-content').innerHTML = '';
+            logMessage('Log puliti');
+        }
+
+        // Alert System
+        function showAlert(message, type = 'info') {
+            const alert = document.createElement('div');
+            alert.className = `alert ${type}`;
+            alert.textContent = message;
+            
+            document.body.appendChild(alert);
+            
+            // Show with animation
+            setTimeout(() => alert.classList.add('show'), 100);
+            
+            // Hide after 4 seconds
+            setTimeout(() => {
+                alert.classList.remove('show');
+                setTimeout(() => alert.remove(), 300);
+            }, 4000);
+        }
+
+        // Modal Management
+        function showModal(modalId) {
+            document.getElementById(modalId).classList.add('show');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+        }
+
+        // API Simulation
+        async function makeAPICall(endpoint, options = {}) {
+            logMessage(`API Call: ${endpoint}`);
+            
+            // Simulate API delay
+            await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 1500));
+            
+            // Simulate occasional errors
+            if (Math.random() > 0.85) {
+                throw new Error('Errore di connessione API');
+            }
+            
+            return {
+                success: true,
+                data: { message: 'Operazione completata' }
+            };
+        }
+
+        // System Status Updates
+        async function updateSystemStatus() {
+            try {
+                // Simulate getting real data
+                const stats = {
+                    projects: Math.floor(Math.random() * 20) + 15,
+                    sources: Math.floor(Math.random() * 300) + 200,
+                    content: Math.floor(Math.random() * 200) + 100
+                };
+                
+                document.getElementById('projects-count').textContent = stats.projects;
+                document.getElementById('sources-count').textContent = stats.sources;
+                document.getElementById('content-count').textContent = stats.content;
+                
+                // API Status check
+                try {
+                    await makeAPICall('/health');
+                    document.getElementById('api-status').textContent = '🟢';
+                    document.getElementById('api-status-text').textContent = 'Online';
+                } catch {
+                    document.getElementById('api-status').textContent = '🔴';
+                    document.getElementById('api-status-text').textContent = 'Offline';
+                }
+                
+                logMessage('Status aggiornato', 'success');
+            } catch (error) {
+                logMessage('Errore aggiornamento status', 'error');
+            }
+        }
+
+        // Action Functions
+        async function runSetup() {
+            const button = event.target;
+            const spinner = button.querySelector('.loading-spinner');
+            
+            button.disabled = true;
+            spinner.style.display = 'inline-block';
+            
+            try {
+                logMessage('Avvio setup sistema...');
+                await makeAPICall('/setup/full');
+                logMessage('Setup completato con successo', 'success');
+                showAlert('Setup sistema completato!', 'success');
+                await updateSystemStatus();
+            } catch (error) {
+                logMessage(`Errore setup: ${error.message}`, 'error');
+                showAlert('Errore durante il setup', 'error');
+            } finally {
+                button.disabled = false;
+                spinner.style.display = 'none';
+            }
+        }
+
+        async function checkSystem() {
+            try {
+                logMessage('Verifica sistema...');
+                await makeAPICall('/system/check');
+                logMessage('Verifica completata', 'success');
+                showAlert('Sistema verificato correttamente', 'success');
+            } catch (error) {
+                logMessage(`Errore verifica: ${error.message}`, 'error');
+                showAlert('Problemi rilevati nel sistema', 'warning');
+            }
+        }
+
+        function showImportModal(type = 'excel') {
+            document.getElementById('import-type').value = type;
+            showModal('import-modal');
+        }
+
+        async function executeImport() {
+            const type = document.getElementById('import-type').value;
+            const fileInput = document.getElementById('import-file');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                showAlert('Seleziona un file da importare', 'warning');
+                return;
+            }
+            
+            closeModal('import-modal');
+            
+            try {
+                logMessage(`Importazione file: ${file.name}`);
+                await makeAPICall('/import/data', { type, filename: file.name });
+                logMessage('Importazione completata', 'success');
+                showAlert('File importato con successo', 'success');
+                await updateSystemStatus();
+            } catch (error) {
+                logMessage(`Errore importazione: ${error.message}`, 'error');
+                showAlert('Errore durante importazione', 'error');
+            }
+        }
+
+        function showCrawlerModal() {
+            // Populate projects dropdown
+            const projectSelect = document.getElementById('crawler-project');
+            projectSelect.innerHTML = '<option value="all">Tutti i Progetti</option>';
+            
+            // Simulate adding projects
+            for (let i = 1; i <= 5; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = `Progetto ${i}`;
+                projectSelect.appendChild(option);
+            }
+            
+            showModal('crawler-modal');
+        }
+
+        async function executeCrawler() {
+            const project = document.getElementById('crawler-project').value;
+            const mode = document.getElementById('crawler-mode').value;
+            const workers = document.getElementById('crawler-workers').value;
+            
+            closeModal('crawler-modal');
+            
+            try {
+                logMessage(`Avvio crawler: ${mode} mode, ${workers} workers`);
+                await makeAPICall('/crawler/run', { project, mode, workers });
+                logMessage('Crawling completato', 'success');
+                showAlert('Web crawling completato', 'success');
+                await updateSystemStatus();
+            } catch (error) {
+                logMessage(`Errore crawler: ${error.message}`, 'error');
+                showAlert('Errore durante crawling', 'error');
+            }
+        }
+
+        async function crawlSingleSource() {
+            const sourceId = prompt('Inserisci ID della fonte da crawlare:');
+            if (!sourceId) return;
+            
+            try {
+                logMessage(`Crawling fonte ${sourceId}`);
+                await makeAPICall(`/crawler/source/${sourceId}`);
+                logMessage(`Fonte ${sourceId} crawlata`, 'success');
+                showAlert('Fonte crawlata con successo', 'success');
+            } catch (error) {
+                logMessage(`Errore crawling fonte: ${error.message}`, 'error');
+                showAlert('Errore durante crawling fonte', 'error');
+            }
+        }
+
+        function showNLPModal() {
+            showModal('nlp-modal');
+        }
+
+        async function executeNLP() {
+            const sourceId = document.getElementById('nlp-source-id').value;
+            const type = document.getElementById('nlp-type').value;
+            
+            closeModal('nlp-modal');
+            
+            try {
+                const target = sourceId ? `fonte ${sourceId}` : 'tutte le fonti';
+                logMessage(`Analisi NLP (${type}) su ${target}`);
+                await makeAPICall('/nlp/analyze', { sourceId, type });
+                logMessage('Analisi NLP completata', 'success');
+                showAlert('Analisi NLP completata', 'success');
+            } catch (error) {
+                logMessage(`Errore analisi NLP: ${error.message}`, 'error');
+                showAlert('Errore durante analisi NLP', 'error');
+            }
+        }
+
+        async function extractEntities() {
+            try {
+                logMessage('Estrazione entità...');
+                await makeAPICall('/nlp/entities');
+                logMessage('Entità estratte', 'success');
+                showAlert('Entità estratte con successo', 'success');
+            } catch (error) {
+                logMessage(`Errore estrazione entità: ${error.message}`, 'error');
+                showAlert('Errore estrazione entità', 'error');
+            }
+        }
+
+        async function runMaintenance() {
+            if (!confirm('Eseguire manutenzione completa del sistema?')) {
+                return;
+            }
+            
+            try {
+                logMessage('Avvio manutenzione sistema...');
+                await makeAPICall('/maintenance/full');
+                logMessage('Manutenzione completata', 'success');
+                showAlert('Manutenzione completata', 'success');
+                await updateSystemStatus();
+            } catch (error) {
+                logMessage(`Errore manutenzione: ${error.message}`, 'error');
+                showAlert('Errore durante manutenzione', 'error');
+            }
+        }
+
+        async function healthCheck() {
+            try {
+                logMessage('Health check in corso...');
+                await makeAPICall('/health/check');
+                logMessage('Health check completato', 'success');
+                showAlert('Sistema in salute', 'success');
+            } catch (error) {
+                logMessage(`Problemi rilevati: ${error.message}`, 'warning');
+                showAlert('Problemi rilevati nel sistema', 'warning');
+            }
+        }
+
+        async function batchImport() {
+            try {
+                logMessage('Avvio batch import...');
+                await makeAPICall('/import/batch');
+                logMessage('Batch import completato', 'success');
+                showAlert('Batch import completato', 'success');
+                await updateSystemStatus();
+            } catch (error) {
+                logMessage(`Errore batch import: ${error.message}`, 'error');
+                showAlert('Errore durante batch import', 'error');
+            }
+        }
+
+        // Initialize Dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            logMessage('Dashboard inizializzata');
+            updateSystemStatus();
+            
+            // Update status every 30 seconds
+            setInterval(updateSystemStatus, 30000);
+            
+            // Close modals when clicking outside
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeModal(modal.id);
+                    }
+                });
+            });
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    // Close any open modal
+                    document.querySelectorAll('.modal.show').forEach(modal => {
+                        closeModal(modal.id);
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle (for future mobile support)
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>-group">
+                <label class="form-label">Tipo di File</label>
+                <select class="form-input" id="import-type">
+                    <option value="excel">Excel (.xlsx, .xls)</option>
+                    <option value="csv">CSV</option>
+                    <option value="markdown">Markdown (.md)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Seleziona File</label>
+                <input type="file" class="form-input" id="import-file" accept=".xlsx,.xls,.csv,.md">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('import-modal')">Annulla</button>
+                <button class="btn btn-primary" onclick="executeImport()">Importa</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="crawler-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">🕷️ Configurazione Crawler</h3>
+                <button class="modal-close" onclick="closeModal('crawler-modal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Progetto</label>
+                <select class="form-input" id="crawler-project">
+                    <option value="all">Tutti i Progetti</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Modalità</label>
+                <select class="form-input" id="crawler-mode">
+                    <option value="parallel">Parallelo</option>
+                    <option value="sequential">Sequenziale</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Worker Paralleli</label>
+                <input type="number" class="form-input" id="crawler-workers" value="3" min="1" max="10">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('crawler-modal')">Annulla</button>
+                <button class="btn btn-primary" onclick="executeCrawler()">Avvia</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="nlp-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">🧠 Analisi NLP</h3>
+                <button class="modal-close" onclick="closeModal('nlp-modal')">&times;</button>
+            </div>
+            <div class="form
