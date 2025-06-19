@@ -1,0 +1,502 @@
+=== STRUTTURA DIRECTORY AD ALBERO ===
+.
+├── alembic
+│   ├── env.py
+│   ├── README
+│   └── script.py.mako
+├── app
+│   ├── api
+│   │   └── __init__.py
+│   ├── AppBackup
+│   │   ├── api
+│   │   │   └── __init__.py
+│   │   ├── core
+│   │   │   ├── __pycache__
+│   │   │   ├── database.py
+│   │   │   └── __init__.py
+│   │   ├── models
+│   │   │   ├── __pycache__
+│   │   │   ├── entity.py
+│   │   │   ├── __init__.py
+│   │   │   ├── project.py
+│   │   │   └── source.py
+│   │   ├── __pycache__
+│   │   │   ├── crud.cpython-313.pyc
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── __main__.cpython-313.pyc
+│   │   │   └── main.cpython-313.pyc
+│   │   ├── schemas
+│   │   │   ├── __pycache__
+│   │   │   ├── entity.py
+│   │   │   ├── __init__.py
+│   │   │   ├── project.py
+│   │   │   └── source.py
+│   │   ├── services
+│   │   │   └── __init__.py
+│   │   ├── crud.py
+│   │   ├── crud.py.old
+│   │   ├── __init__.py
+│   │   ├── __main__.py
+│   │   └── main.py
+│   ├── core
+│   │   ├── __pycache__
+│   │   │   ├── database.cpython-313.pyc
+│   │   │   └── __init__.cpython-313.pyc
+│   │   ├── database.py
+│   │   └── __init__.py
+│   ├── models
+│   │   ├── __pycache__
+│   │   │   ├── entity.cpython-313.pyc
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── project.cpython-313.pyc
+│   │   │   └── source.cpython-313.pyc
+│   │   ├── entity.py
+│   │   ├── __init__.py
+│   │   ├── project.py
+│   │   └── source.py
+│   ├── __pycache__
+│   │   ├── crud.cpython-313.pyc
+│   │   ├── __init__.cpython-313.pyc
+│   │   ├── __main__.cpython-313.pyc
+│   │   └── main.cpython-313.pyc
+│   ├── schemas
+│   │   ├── __pycache__
+│   │   │   ├── entity.cpython-313.pyc
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── project.cpython-313.pyc
+│   │   │   └── source.cpython-313.pyc
+│   │   ├── entity.py
+│   │   ├── __init__.py
+│   │   ├── project.py
+│   │   └── source.py
+│   ├── services
+│   │   └── __init__.py
+│   ├── static
+│   │   ├── css
+│   │   ├── images
+│   │   └── js
+│   ├── templates
+│   │   ├── base.html
+│   │   ├── dashboard.html
+│   │   ├── dashboard.html.backup
+│   │   ├── dashboard.html.old
+│   │   ├── import.html
+│   │   ├── projects.html
+│   │   └── search.html
+│   ├── crud.py
+│   ├── crud.py.old
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── main.py
+│   ├── main.py.backup
+│   └── main.py.network_backup
+├── .git
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   ├── push-to-checkout.sample
+│   │   ├── sendemail-validate.sample
+│   │   └── update.sample
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── refs
+│   │   │   ├── heads
+│   │   │   └── remotes
+│   │   └── HEAD
+│   ├── objects
+│   │   ├── 04
+│   │   │   └── 1d5c3725708c81bcf8445e7c72e831de166556
+│   │   ├── 05
+│   │   │   └── 947de644370f828d27ddb7639b3d014347b5b7
+│   │   ├── 08
+│   │   │   └── ab39911f5847b11f12a2e625a740c6a2a2e562
+│   │   ├── 10
+│   │   │   └── bafff4fedf063b103b49beed0702fb06043b7c
+│   │   ├── 14
+│   │   │   └── 85a9decf11eb440a47ba4ee95cd8af935785ab
+│   │   ├── 16
+│   │   │   ├── 56246097570fec3d164efb93e103dbf8829159
+│   │   │   └── 93e7ace30a06c363340ed234974865014c4083
+│   │   ├── 18
+│   │   │   └── d80b83834241ce6aabd22a5eaff79d1c7b8b9e
+│   │   ├── 1b
+│   │   │   └── d393f6d0dc6c829c5621c4ce19c79d9fcdb21f
+│   │   ├── 26
+│   │   │   └── 4ae2f1c96f690cc787458224852bd0ef07e853
+│   │   ├── 33
+│   │   │   └── 831f67fc05b8f71248af18d2e86b4ab3bf8cbf
+│   │   ├── 35
+│   │   │   └── 4c375d1aa61fa890801bd8268ed5e9dd136d55
+│   │   ├── 36
+│   │   │   └── 489da3806663efb4ff89c4f1a3bce2673e2ddb
+│   │   ├── 39
+│   │   │   └── 4fc6fa1f1c4dba896e9c1c91484f7d36271c61
+│   │   ├── 3c
+│   │   │   └── 3b70e3b670f51331591e051dd99697246c3552
+│   │   ├── 48
+│   │   │   └── 0b130d632ca677c11f23d9fe82cf4014d15e0c
+│   │   ├── 4b
+│   │   │   └── 086bf93daf7b2e823c816c00dced55a6227890
+│   │   ├── 4c
+│   │   │   └── cb509fd72a01cecb2123a5918f87bad240cad2
+│   │   ├── 4d
+│   │   │   └── dacce3d2daf41a445bb9db2f0b96cef69aa401
+│   │   ├── 4f
+│   │   │   └── 1aa729cae47ef5986f0c189569388606995707
+│   │   ├── 50
+│   │   │   └── 01cf8d394dfc4c135baf95e808621f4f599e04
+│   │   ├── 53
+│   │   │   └── 786f9ff2458c7ce315f0a698319ca1fa2ceaf4
+│   │   ├── 54
+│   │   │   ├── 167bfdfbca02262f60f4a32fe56b690c4173b8
+│   │   │   └── 3f2406ace18aa6c4807ab5eb04c3152011cab6
+│   │   ├── 68
+│   │   │   └── 5ce2892ef93f3257aedbd78599ce1856568371
+│   │   ├── 6d
+│   │   │   └── 861b4b1e5426fd800e01ae2ea6025c6ad3e58f
+│   │   ├── 6e
+│   │   │   └── 3427894ea2c2d566a6f2de996f179af03e8add
+│   │   ├── 7a
+│   │   │   └── 3c39070bee046a5b75ea35c0e210ae662b4634
+│   │   ├── 7d
+│   │   │   └── cecf855dd252bb92973d2157dd1b62e9478808
+│   │   ├── 7f
+│   │   │   └── 43ac04ae347bd8d55ea1b4c60a3e9ac1826870
+│   │   ├── 87
+│   │   │   └── 3c9cf9876d48b517a32ff9d01d5ba00cda8628
+│   │   ├── 8b
+│   │   │   └── 86ca06eee857f419fa08c3d6d3518e4f6aa5f0
+│   │   ├── 8d
+│   │   │   └── 0858d92487b2b43e15048c16a8628ccc0d0103
+│   │   ├── 8f
+│   │   │   ├── 6c1522f6b5d9540cf651641971abca809c9edb
+│   │   │   └── 970080200e122277ae13e89ec67b9b605e0190
+│   │   ├── 91
+│   │   │   └── 0ad70802666b99e1f209535931879e4075e31b
+│   │   ├── 95
+│   │   │   └── 14723bb014fbf4e79eff9396bf552f79c6a7a6
+│   │   ├── 97
+│   │   │   └── 06f00b7a1666f3922f4f609ca4c001d3f5e597
+│   │   ├── 98
+│   │   │   ├── 4f7c20d1b308604066454d45695e7a9eeb0245
+│   │   │   └── e4f9c44effe479ed38c66ba922e7bcc672916f
+│   │   ├── 9d
+│   │   │   └── 1dcfdaf1a6857c5f83dc27019c7600e1ffaff8
+│   │   ├── 9e
+│   │   │   └── 4a497d0576a84e0ca507e7fa6b444607d05c3d
+│   │   ├── 9f
+│   │   │   └── 3e87c663f5c3c2d21344769197b3c6046f2a31
+│   │   ├── a3
+│   │   │   ├── 0a6283521386a21734e5c67a89530324b54288
+│   │   │   └── 7f93292fbaaee4a921831ac21163bdda0d2414
+│   │   ├── a7
+│   │   │   └── 556f21898dbb0ded8d9eb8f541523fff485a95
+│   │   ├── ae
+│   │   │   └── ed56e5eb2e078164843327365c17d3f07920b4
+│   │   ├── af
+│   │   │   └── 46256817ee54a51bd2157ed6ca2ef946772e99
+│   │   ├── b6
+│   │   │   └── 5a5158df5941f1ce370cf72b0f0fbd4f3d45b8
+│   │   ├── b7
+│   │   │   └── e9b79a211e4722b734bfa5da27c8fe48171fbe
+│   │   ├── bb
+│   │   │   └── d7d54b159cd530b071c1642ea2bbc2510665e5
+│   │   ├── bf
+│   │   │   └── 2e71df2b0a4a2a80c9689f8250e4bfc9242ec6
+│   │   ├── c2
+│   │   │   └── 72658674b762062c93e225f47657d0f2e152da
+│   │   ├── c7
+│   │   │   └── fd317acf844d17bd7abfacd0a06a4f48eb7687
+│   │   ├── cd
+│   │   │   ├── 38aa09f456c060f4a8734e8816a49cd544a896
+│   │   │   └── d38914efa1101c04045a7bbf4c2f78c108f7b0
+│   │   ├── ce
+│   │   │   ├── 75a7a620ea9e6868fc585c8b9ed0a04d018267
+│   │   │   └── befd6aa830e86950b6dcb6f26a1cae72a6d500
+│   │   ├── cf
+│   │   │   ├── 7c8e544509451926879c9f8759e7a57d613894
+│   │   │   └── bfd99591a4185f55ccfadcf40fb73e200b016d
+│   │   ├── d0
+│   │   │   └── 4cfb011ecffa7163bb276c3c82236f38da0490
+│   │   ├── d2
+│   │   │   └── 133aa9ba156b0161864c01017e95149cbc55b8
+│   │   ├── d3
+│   │   │   └── db1c906bfe9724d746f1c805d9ccc326695df3
+│   │   ├── d9
+│   │   │   └── 5dc93ed7c8035e711ad01b90f2237c0a8cad22
+│   │   ├── dd
+│   │   │   └── ddd392aea1f9b9e0ba03724ffd0f87bdf2e6bd
+│   │   ├── e5
+│   │   │   └── caf868fe965141841d3ca58d8e34c08fa3df87
+│   │   ├── e6
+│   │   │   └── 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+│   │   ├── e8
+│   │   │   └── b9c3308ff68c46012631c75977e1fc5aba8968
+│   │   ├── e9
+│   │   │   └── 248d6fb70e93aefb9b0d2c381c5f691a1ac400
+│   │   ├── ee
+│   │   │   └── 7259920da818b29a5decc9e6573486508d57dd
+│   │   ├── ef
+│   │   │   └── c9e6a2bf0b7b1c7bed41d206af170b251cebcb
+│   │   ├── f6
+│   │   │   └── 57bf20320f9c2a915a8524d4d16206c43898d2
+│   │   ├── f9
+│   │   │   ├── 0481cb90d02df57b4fbdc5083527933c27b844
+│   │   │   └── 04a399eb054ba1d79413b119ffec43cead0edd
+│   │   ├── fe
+│   │   │   └── accf602474dc4768792ac9407ee38131c06635
+│   │   ├── ff
+│   │   │   └── 39e3369675f276dc3ac6501f91d660c999e828
+│   │   ├── info
+│   │   └── pack
+│   ├── refs
+│   │   ├── heads
+│   │   │   └── main
+│   │   ├── remotes
+│   │   │   └── origin
+│   │   └── tags
+│   ├── COMMIT_EDITMSG
+│   ├── config
+│   ├── description
+│   ├── HEAD
+│   └── index
+├── platform_docs_20250618_204452
+│   ├── chatbot_instructions.md
+│   └── platform_info.json
+├── platform_docs_20250618_205757
+│   ├── chatbot_instructions.md
+│   ├── platform_complete_data.json
+│   ├── platform_current_config.md
+│   └── platform_current_config.txt
+├── platform_docs_ultimate_20250618_211748
+│   ├── directory_tree.txt
+│   ├── file_inventory.json
+│   ├── platform_complete_data.json
+│   ├── platform_complete_structure.md
+│   ├── platform_complete_structure.txt
+│   └── ultimate_chatbot_instructions.md
+├── platform_docs_ultimate_20250618_211827
+│   ├── directory_tree.txt
+│   ├── file_inventory.json
+│   ├── platform_complete_data.json
+│   ├── platform_complete_structure.md
+│   ├── platform_complete_structure.txt
+│   └── ultimate_chatbot_instructions.md
+├── scripts
+│   └── ScriptsBackup
+│       ├── Transito
+│       │   ├── create_tables.py
+│       │   ├── extract_entities.py
+│       │   ├── import_data.py
+│       │   ├── populate_database.py
+│       │   ├── run_crawler.py
+│       │   └── scrape_single_source.py
+│       ├── completed_entity_extractor.py
+│       ├── config_system (1).py
+│       ├── config_system.py
+│       ├── dashboard_backend.py
+│       ├── dashboard_launcher.py
+│       ├── dashboard_readme.md
+│       ├── env_template.sh
+│       ├── improved_crawler.py
+│       ├── improved_db_setup.py
+│       ├── improved_import_system.py
+│       ├── improved_scraper.py
+│       ├── save_dashboard.py
+│       ├── setup_script.py
+│       ├── system_management.py
+│       ├── utils_system.py
+│       └── web_dashboard.html
+├── venv
+│   ├── bin
+│   │   ├── activate
+│   │   ├── activate.csh
+│   │   ├── activate.fish
+│   │   ├── Activate.ps1
+│   │   ├── courlan
+│   │   ├── dateparser-download
+│   │   ├── dotenv
+│   │   ├── f2py
+│   │   ├── fastapi
+│   │   ├── htmldate
+│   │   ├── markdown-it
+│   │   ├── normalizer
+│   │   ├── numpy-config
+│   │   ├── pip
+│   │   ├── pip3
+│   │   ├── pip3.13
+│   │   ├── pybabel
+│   │   ├── pygmentize
+│   │   ├── python -> python3
+│   │   ├── python3 -> /usr/bin/python3
+│   │   ├── python3.13 -> python3
+│   │   ├── spacy
+│   │   ├── tqdm
+│   │   ├── trafilatura
+│   │   ├── typer
+│   │   ├── update-tld-names
+│   │   ├── uvicorn
+│   │   ├── watchfiles
+│   │   ├── weasel
+│   │   └── websockets
+│   ├── include
+│   │   ├── python3.13
+│   │   └── site
+│   │       └── python3.13
+│   ├── lib
+│   │   └── python3.13
+│   │       └── site-packages
+│   ├── lib64 -> lib
+│   ├── .gitignore
+│   └── pyvenv.cfg
+├── completed_entity_extractor.py
+├── comprehensive_platform_analysis.sh
+├── config_system.py
+├── dashboard_backend.py
+├── dashboard_launcher.py
+├── dashboard_readme.md
+├── dashboard_template.html
+├── enhanced_platform_doc_generator.py
+├── .env
+├── env_template.sh
+├── fastapi_integration.py
+├── .gitignore
+├── improved_crawler.py
+├── improved_db_setup.py
+├── improved_import_system.py
+├── improved_scraper.py
+├── integrated_frontend.py
+├── network_config.py
+├── network_connectivity_test.sh
+├── network_frontend_setup.py
+├── network_quick_guide.md
+├── NETWORK_SETUP_INFO.md
+├── one_command_analysis.sh
+├── platform_debug_toolkit.sh
+├── platform_doc_generator.py
+├── proxmox_debug_commands.sh
+├── proxmox_firewall_config.sh
+├── save_dashboard.py
+├── setup_frontend.py
+├── setup_frontend_script.py
+├── setup_script.py
+├── start_network_server.sh
+├── struttura_completa.txt
+├── system_management.py
+├── ultimate_platform_doc_generator.py
+├── utils_system.py
+└── web_dashboard.html
+
+126 directories, 271 files
+
+=== INVENTARIO FILE PER TIPO ===
+File Python: 73
+Template HTML: 10
+File CSS: 0
+File JS: 1
+File Markdown: 18
+File Config: 15
+
+=== FILE PRINCIPALI ===
+./alembic/env.py
+./app/api/__init__.py
+./app/AppBackup/api/__init__.py
+./app/AppBackup/core/database.py
+./app/AppBackup/core/__init__.py
+./app/AppBackup/crud.py
+./app/AppBackup/__init__.py
+./app/AppBackup/__main__.py
+./app/AppBackup/main.py
+./app/AppBackup/models/entity.py
+./app/AppBackup/models/__init__.py
+./app/AppBackup/models/project.py
+./app/AppBackup/models/source.py
+./app/AppBackup/schemas/entity.py
+./app/AppBackup/schemas/__init__.py
+./app/AppBackup/schemas/project.py
+./app/AppBackup/schemas/source.py
+./app/AppBackup/services/__init__.py
+./app/core/database.py
+./app/core/__init__.py
+./app/crud.py
+./app/__init__.py
+./app/__main__.py
+./app/main.py
+./app/models/entity.py
+./app/models/__init__.py
+./app/models/project.py
+./app/models/source.py
+./app/schemas/entity.py
+./app/schemas/__init__.py
+./app/schemas/project.py
+./app/schemas/source.py
+./app/services/__init__.py
+./app/templates/base.html
+./app/templates/dashboard.html
+./app/templates/import.html
+./app/templates/projects.html
+./app/templates/search.html
+./completed_entity_extractor.py
+./config_system.py
+./dashboard_backend.py
+./dashboard_launcher.py
+./dashboard_readme.md
+./dashboard_template.html
+./enhanced_platform_doc_generator.py
+./fastapi_integration.py
+./improved_crawler.py
+./improved_db_setup.py
+./improved_import_system.py
+./improved_scraper.py
+./integrated_frontend.py
+./network_config.py
+./network_frontend_setup.py
+./network_quick_guide.md
+./NETWORK_SETUP_INFO.md
+./platform_doc_generator.py
+./platform_docs_20250618_204452/chatbot_instructions.md
+./platform_docs_20250618_205757/chatbot_instructions.md
+./platform_docs_20250618_205757/platform_current_config.md
+./platform_docs_ultimate_20250618_211748/platform_complete_structure.md
+./platform_docs_ultimate_20250618_211748/ultimate_chatbot_instructions.md
+./platform_docs_ultimate_20250618_211827/platform_complete_structure.md
+./platform_docs_ultimate_20250618_211827/ultimate_chatbot_instructions.md
+./save_dashboard.py
+./scripts/ScriptsBackup/completed_entity_extractor.py
+./scripts/ScriptsBackup/config_system (1).py
+./scripts/ScriptsBackup/config_system.py
+./scripts/ScriptsBackup/dashboard_backend.py
+./scripts/ScriptsBackup/dashboard_launcher.py
+./scripts/ScriptsBackup/dashboard_readme.md
+./scripts/ScriptsBackup/improved_crawler.py
+./scripts/ScriptsBackup/improved_db_setup.py
+./scripts/ScriptsBackup/improved_import_system.py
+./scripts/ScriptsBackup/improved_scraper.py
+./scripts/ScriptsBackup/save_dashboard.py
+./scripts/ScriptsBackup/setup_script.py
+./scripts/ScriptsBackup/system_management.py
+./scripts/ScriptsBackup/Transito/create_tables.py
+./scripts/ScriptsBackup/Transito/extract_entities.py
+./scripts/ScriptsBackup/Transito/import_data.py
+./scripts/ScriptsBackup/Transito/populate_database.py
+./scripts/ScriptsBackup/Transito/run_crawler.py
+./scripts/ScriptsBackup/Transito/scrape_single_source.py
+./scripts/ScriptsBackup/utils_system.py
+./scripts/ScriptsBackup/web_dashboard.html
+./setup_frontend.py
+./setup_frontend_script.py
+./setup_script.py
+./system_management.py
+./ultimate_platform_doc_generator.py
+./utils_system.py
+./web_dashboard.html

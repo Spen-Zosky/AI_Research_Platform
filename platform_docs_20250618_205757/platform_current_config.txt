@@ -1,0 +1,1649 @@
+# AI Research Platform - Configurazione Completa
+Generato: 2025-06-18 20:57:57
+Timestamp: 20250618_205757
+Directory: /home/enzo/AI_Research_Platform
+
+============================================================
+STRUTTURA DIRECTORY PRINCIPALE
+============================================================
+totale 596
+drwxrwxr-x  9 enzo enzo  4096 giu 18 20:57 .
+drwxr-x--- 27 enzo enzo  4096 giu 18 20:17 ..
+drwxrwxr-x  2 enzo enzo  4096 giu 17 23:40 alembic
+drwxrwxr-x 11 enzo enzo  4096 giu 18 17:31 app
+-rw-rw-r--  1 enzo enzo  9868 giu 18 14:34 completed_entity_extractor.py
+-rw-rw-r--  1 enzo enzo 12841 giu 18 15:01 comprehensive_platform_analysis.sh
+-rw-rw-r--  1 enzo enzo  4235 giu 18 14:34 config_system.py
+-rw-rw-r--  1 enzo enzo 27412 giu 18 14:37 dashboard_backend.py
+-rw-rw-r--  1 enzo enzo 15160 giu 18 14:37 dashboard_launcher.py
+-rw-rw-r--  1 enzo enzo  8389 giu 18 14:37 dashboard_readme.md
+-rw-rw-r--  1 enzo enzo 19581 giu 18 14:43 dashboard_template.html
+-rwxrwxr-x  1 enzo enzo 17617 giu 18 20:57 enhanced_platform_doc_generator.py
+-rw-rw-r--  1 enzo enzo    84 giu 17 23:42 .env
+-rw-rw-r--  1 enzo enzo  5406 giu 18 14:36 env_template.sh
+-rw-rw-r--  1 enzo enzo 12938 giu 18 14:43 fastapi_integration.py
+drwxrwxr-x  7 enzo enzo  4096 giu 18 19:49 .git
+-rw-rw-r--  1 enzo enzo   213 giu 18 17:37 .gitignore
+-rw-rw-r--  1 enzo enzo 14258 giu 18 14:34 improved_crawler.py
+-rw-rw-r--  1 enzo enzo 14528 giu 18 14:35 improved_db_setup.py
+-rw-rw-r--  1 enzo enzo 18898 giu 18 14:35 improved_import_system.py
+-rw-rw-r--  1 enzo enzo  5570 giu 18 14:34 improved_scraper.py
+-rw-rw-r--  1 enzo enzo  7930 giu 18 14:43 integrated_frontend.py
+-rw-rw-r--  1 enzo enzo 12865 giu 18 14:44 network_config.py
+-rw-rw-r--  1 enzo enzo  8212 giu 18 15:01 network_connectivity_test.sh
+-rw-rw-r--  1 enzo enzo 33919 giu 18 14:44 network_frontend_setup.py
+-rw-rw-r--  1 enzo enzo  6415 giu 18 14:45 network_quick_guide.md
+-rw-rw-r--  1 enzo enzo  2893 giu 18 16:02 NETWORK_SETUP_INFO.md
+-rw-rw-r--  1 enzo enzo  3524 giu 18 15:02 one_command_analysis.sh
+-rw-rw-r--  1 enzo enzo 12162 giu 18 15:01 platform_debug_toolkit.sh
+-rwxrwxr-x  1 enzo enzo  3853 giu 18 20:41 platform_doc_generator.py
+drwxrwxr-x  2 enzo enzo  4096 giu 18 20:44 platform_docs_20250618_204452
+drwxrwxr-x  2 enzo enzo  4096 giu 18 20:57 platform_docs_20250618_205757
+-rw-rw-r--  1 enzo enzo  6782 giu 18 15:03 proxmox_debug_commands.sh
+-rw-rw-r--  1 enzo enzo  6887 giu 18 15:03 proxmox_firewall_config.sh
+-rw-rw-r--  1 enzo enzo 47980 giu 18 14:38 save_dashboard.py
+drwxrwxr-x  3 enzo enzo  4096 giu 18 15:30 scripts
+-rw-rw-r--  1 enzo enzo 27640 giu 18 16:11 setup_frontend.py
+-rw-rw-r--  1 enzo enzo 27640 giu 18 14:44 setup_frontend_script.py
+-rw-rw-r--  1 enzo enzo 20424 giu 18 14:36 setup_script.py
+-rwxr-xr-x  1 enzo enzo  1019 giu 18 16:02 start_network_server.sh
+-rw-rw-r--  1 enzo enzo 25546 giu 18 14:35 system_management.py
+-rw-rw-r--  1 enzo enzo  9049 giu 18 14:34 utils_system.py
+drwxrwxr-x  5 enzo enzo  4096 giu 17 23:40 venv
+-rw-rw-r--  1 enzo enzo 46765 giu 18 14:37 web_dashboard.html
+
+============================================================
+STRUTTURA COMPLETA (fino a 3 livelli)
+============================================================
+.
+./platform_docs_20250618_205757
+./app
+./app/core
+./app/core/__pycache__
+./app/api
+./app/templates
+./app/models
+./app/models/__pycache__
+./app/services
+./app/__pycache__
+./app/static
+./app/static/js
+./app/static/images
+./app/static/css
+./app/AppBackup
+./app/AppBackup/core
+./app/AppBackup/api
+./app/AppBackup/models
+./app/AppBackup/services
+
+============================================================
+FILE PYTHON PRINCIPALI
+============================================================
+./save_dashboard.py
+./improved_crawler.py
+./improved_db_setup.py
+./network_config.py
+./utils_system.py
+./app/core/database.py
+./app/core/__init__.py
+./app/api/__init__.py
+./app/__main__.py
+./app/models/source.py
+./app/models/entity.py
+./app/models/project.py
+./app/models/__init__.py
+./app/services/__init__.py
+./app/crud.py
+./app/main.py
+./app/AppBackup/core/database.py
+./app/AppBackup/core/__init__.py
+./app/AppBackup/api/__init__.py
+./app/AppBackup/__main__.py
+
+============================================================
+FILE DI CONFIGURAZIONE
+============================================================
+-rw-rw-r--  1 enzo enzo    84 giu 17 23:42 .env
+
+============================================================
+CONTENUTO .ENV
+============================================================
+File .env trovato:
+DATABASE_URL="postgresql+psycopg2://platdev_user:1q2w3e4r5t6y@localhost/platdev_db"
+
+============================================================
+REQUIREMENTS/DIPENDENZE
+============================================================
+Nessun file di dipendenze trovato
+
+============================================================
+VERSIONE PYTHON
+============================================================
+Python 3.13.3
+Python 3.13.3
+
+============================================================
+MODULI INSTALLATI (sample)
+============================================================
+fastapi            0.115.13
+pandas             2.3.0
+requests           2.32.4
+
+============================================================
+VIRTUAL ENVIRONMENT
+============================================================
+VIRTUAL_ENV: /home/enzo/AI_Research_Platform/venv
+/home/enzo/AI_Research_Platform/venv/bin/python
+
+============================================================
+PIP LIST COMPLETA
+============================================================
+aiofiles==24.1.0
+annotated-types==0.7.0
+anyio==4.9.0
+babel==2.17.0
+beautifulsoup4==4.13.4
+blis==1.3.0
+catalogue==2.0.10
+certifi==2025.6.15
+charset-normalizer==3.4.2
+click==8.2.1
+cloudpathlib==0.21.1
+confection==0.1.5
+courlan==1.3.2
+cymem==2.0.11
+dateparser==1.2.1
+et_xmlfile==2.0.0
+fastapi==0.115.13
+greenlet==3.2.3
+h11==0.16.0
+htmldate==1.9.3
+httptools==0.6.4
+idna==3.10
+it_core_news_lg==3.8.0
+Jinja2==3.1.6
+jusText==3.0.2
+langcodes==3.5.0
+language_data==1.3.0
+lxml==5.4.0
+lxml_html_clean==0.4.2
+marisa-trie==1.2.1
+markdown-it-py==3.0.0
+MarkupSafe==3.0.2
+mdurl==0.1.2
+murmurhash==1.0.13
+numpy==2.3.0
+openpyxl==3.1.5
+packaging==25.0
+pandas==2.3.0
+pip==25.1.1
+preshed==3.0.10
+psycopg2-binary==2.9.10
+pydantic==2.11.7
+pydantic_core==2.33.2
+Pygments==2.19.1
+python-dateutil==2.9.0.post0
+python-dotenv==1.1.0
+python-multipart==0.0.20
+pytz==2025.2
+PyYAML==6.0.2
+regex==2024.11.6
+requests==2.32.4
+rich==14.0.0
+setuptools==80.9.0
+shellingham==1.5.4
+six==1.17.0
+smart-open==7.1.0
+sniffio==1.3.1
+soupsieve==2.7
+spacy==3.8.7
+spacy-legacy==3.0.12
+spacy-loggers==1.0.5
+SQLAlchemy==2.0.41
+srsly==2.5.1
+starlette==0.46.2
+thinc==8.3.6
+tld==0.13.1
+tqdm==4.67.1
+trafilatura==2.0.0
+typer==0.16.0
+typing_extensions==4.14.0
+typing-inspection==0.4.1
+tzdata==2025.2
+tzlocal==5.3.1
+urllib3==2.4.0
+uvicorn==0.34.3
+uvloop==0.21.0
+wasabi==1.1.3
+watchfiles==1.1.0
+weasel==0.4.1
+websockets==15.0.1
+wrapt==1.17.2
+
+============================================================
+FILE MODELLI/DATABASE
+============================================================
+./app/core/database.py
+./app/AppBackup/core/database.py
+./venv/lib/python3.13/site-packages/fastapi/openapi/models.py
+./venv/lib/python3.13/site-packages/fastapi/dependencies/models.py
+./venv/lib/python3.13/site-packages/weasel/schemas.py
+./venv/lib/python3.13/site-packages/weasel/tests/test_schemas.py
+./venv/lib/python3.13/site-packages/charset_normalizer/models.py
+./venv/lib/python3.13/site-packages/starlette/schemas.py
+./venv/lib/python3.13/site-packages/typer/models.py
+./venv/lib/python3.13/site-packages/sqlalchemy/sql/schema.py
+./venv/lib/python3.13/site-packages/sqlalchemy/dialects/mssql/information_schema.py
+./venv/lib/python3.13/site-packages/sqlalchemy/schema.py
+./venv/lib/python3.13/site-packages/sqlalchemy/testing/schema.py
+./venv/lib/python3.13/site-packages/thinc/tests/model/test_model.py
+./venv/lib/python3.13/site-packages/thinc/model.py
+./venv/lib/python3.13/site-packages/spacy/schemas.py
+./venv/lib/python3.13/site-packages/spacy/tests/pipeline/test_models.py
+./venv/lib/python3.13/site-packages/spacy/tests/test_models.py
+./venv/lib/python3.13/site-packages/spacy/pipeline/_edit_tree_internals/schemas.py
+./venv/lib/python3.13/site-packages/spacy/cli/debug_model.py
+
+============================================================
+FILE CONFIGURAZIONE DB
+============================================================
+
+
+============================================================
+PROCESSI DATABASE
+============================================================
+postgres    1318  0.0  0.3 233012 30236 ?        Ss   13:56   0:01 /usr/lib/postgresql/17/bin/postgres -D /var/lib/postgresql/17/main -c config_file=/etc/postgresql/17/main/postgresql.conf
+postgres    1326  0.0  0.1 233140  8848 ?        Ss   13:56   0:00 postgres: 17/main: checkpointer 
+postgres    1327  0.0  0.0 233156  7116 ?        Ss   13:56   0:00 postgres: 17/main: background writer 
+postgres    1334  0.0  0.1 233012 10088 ?        Ss   13:56   0:00 postgres: 17/main: walwriter 
+postgres    1335  0.0  0.1 234576  9088 ?        Ss   13:56   0:00 postgres: 17/main: autovacuum launcher 
+postgres    1336  0.0  0.1 234584  8040 ?        Ss   13:56   0:00 postgres: 17/main: logical replication launcher 
+postgres    7784  0.4  0.2 235312 20480 ?        Ss   20:57   0:00 postgres: 17/main: platdev_user platdev_db 127.0.0.1(52968) idle
+
+============================================================
+CONTENUTO app/models/project.py
+============================================================
+from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy.orm import relationship, declarative_base
+import datetime
+
+Base = declarative_base()
+
+class Project(Base):
+    __tablename__ = 'projects'
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True, nullable=False)
+    description = Column(String, nullable=True)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+    # Relazione: Un progetto ha molte fonti
+    sources = relationship("Source", back_populates="project", cascade="all, delete-orphan")
+
+============================================================
+CONTENUTO app/models/source.py
+============================================================
+from sqlalchemy import Column, Integer, String, DateTime, Text, ForeignKey
+from sqlalchemy.orm import relationship
+import datetime
+from .project import Base
+
+class Source(Base):
+    __tablename__ = 'sources'
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, index=True, nullable=False)
+    url = Column(String, nullable=True)
+    content = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    project_id = Column(Integer, ForeignKey('projects.id'))
+    project = relationship("Project", back_populates="sources")
+    # Relazione: Una fonte ha molte entità
+    entities = relationship("Entity", back_populates="source", cascade="all, delete-orphan")
+
+============================================================
+CONTENUTO app/models/entity.py
+============================================================
+from sqlalchemy import Column, Integer, String, Enum, ForeignKey
+from sqlalchemy.orm import relationship
+from .project import Base
+import enum
+
+class EntityType(enum.Enum):
+    PERSON = "PER"
+    ORGANIZATION = "ORG"
+    LOCATION = "LOC"
+    GEOPOLITICAL = "GPE"
+
+class Entity(Base):
+    __tablename__ = 'entities'
+    id = Column(Integer, primary_key=True, index=True)
+    text = Column(String, index=True)
+    label = Column(Enum(EntityType))
+    source_id = Column(Integer, ForeignKey('sources.id'))
+    source = relationship("Source", back_populates="entities")
+
+============================================================
+CONTENUTO app/schemas/project.py
+============================================================
+from pydantic import BaseModel, ConfigDict
+import datetime
+from typing import Optional, List
+
+# Importa lo schema Source per la relazione
+from .source import Source 
+
+class ProjectBase(BaseModel):
+    name: str
+    description: Optional[str] = None
+
+class ProjectCreate(ProjectBase):
+    pass
+
+class ProjectUpdate(BaseModel):
+    name: Optional[str] = None
+    description: Optional[str] = None
+
+# Lo schema di lettura ora includerà una lista di fonti
+class Project(ProjectBase):
+    id: int
+    created_at: datetime.datetime
+    sources: List[Source] = []
+
+    model_config = ConfigDict(from_attributes=True)
+
+============================================================
+CONTENUTO app/schemas/source.py
+============================================================
+from pydantic import BaseModel, ConfigDict
+import datetime
+from typing import Optional, List
+from .entity import Entity # Importa lo schema Entity
+
+class SourceBase(BaseModel):
+    title: str
+    url: Optional[str] = None
+    content: Optional[str] = None
+
+class SourceCreate(SourceBase):
+    pass
+
+class SourceUpdate(BaseModel):
+    content: str
+
+class Source(SourceBase):
+    id: int
+    project_id: int
+    created_at: datetime.datetime
+    entities: List[Entity] = [] # Aggiunge la lista di entità
+    model_config = ConfigDict(from_attributes=True)
+
+============================================================
+CONTENUTO app/schemas/entity.py
+============================================================
+from pydantic import BaseModel, ConfigDict
+from typing import Optional
+
+class EntityBase(BaseModel):
+    text: str
+    label: str
+
+class EntityCreate(EntityBase):
+    pass
+
+class Entity(EntityBase):
+    id: int
+    source_id: int
+    model_config = ConfigDict(from_attributes=True)
+
+============================================================
+PROCESSI ATTIVI (porta 8000-8010)
+============================================================
+tcp   LISTEN 0      2048         0.0.0.0:8000       0.0.0.0:*
+
+============================================================
+FILE MAIN/SERVER
+============================================================
+./app/main.py
+./app/AppBackup/main.py
+./venv/lib/python3.13/site-packages/markdown_it/main.py
+./venv/lib/python3.13/site-packages/weasel/cli/main.py
+./venv/lib/python3.13/site-packages/typer/main.py
+
+============================================================
+TEST CONNESSIONE API LOCALE
+============================================================
+API 8000 raggiungibile
+API 8001 non raggiungibile
+
+============================================================
+ENDPOINT API (OpenAPI)
+============================================================
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "AI Augmented Research Platform",
+        "description": "Backend API for the research platform",
+        "version": "0.3.0"
+    },
+    "paths": {
+        "/search/": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "summary": "Search In Sources",
+                "description": "Esegue una ricerca full-text nel contenuto di tutte le fonti.",
+                "operationId": "search_in_sources_search__get",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "minLength": 3,
+                            "title": "Q"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Source"
+                                    },
+                                    "title": "Response Search In Sources Search  Get"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+
+============================================================
+CONTENUTO COMPLETO app/main.py
+============================================================
+import uvicorn
+from fastapi import FastAPI, Depends, HTTPException, Query, Request, Form, File, UploadFile
+from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from sqlalchemy.orm import Session
+from typing import List, Optional
+from pathlib import Path
+import pandas as pd
+
+from .core.database import get_db
+from . import crud
+from .schemas import project as project_schema, source as source_schema
+
+# Create FastAPI app instance
+app = FastAPI(
+    title="AI Augmented Research Platform",
+    description="Backend API for the research platform",
+    version="0.3.0"
+)
+
+# Setup template e static files
+static_dir = Path("app/static")
+templates_dir = Path("app/templates")
+static_dir.mkdir(exist_ok=True)
+templates_dir.mkdir(exist_ok=True)
+
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
+templates = Jinja2Templates(directory=templates_dir)
+
+# --- Endpoint per la RICERCA ---
+@app.get("/search/", response_model=List[source_schema.Source], tags=["Search"])
+def search_in_sources(q: str = Query(..., min_length=3), db: Session = Depends(get_db)):
+    """
+    Esegue una ricerca full-text nel contenuto di tutte le fonti.
+    """
+    results = crud.search_sources_content(db=db, query=q)
+    return results
+
+# --- Endpoints per PROGETTI ---
+@app.post("/projects/", response_model=project_schema.Project, tags=["Projects"])
+def create_project_endpoint(project: project_schema.ProjectCreate, db: Session = Depends(get_db)):
+    return crud.create_project(db=db, project=project)
+
+@app.get("/projects/", response_model=List[project_schema.Project], tags=["Projects"])
+def read_projects_endpoint(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    return crud.get_projects(db, skip=skip, limit=limit)
+
+@app.get("/projects/{project_id}", response_model=project_schema.Project, tags=["Projects"])
+def read_project_endpoint(project_id: int, db: Session = Depends(get_db)):
+    db_project = crud.get_project(db, project_id=project_id)
+    if db_project is None: 
+        raise HTTPException(status_code=404, detail="Project not found")
+    return db_project
+
+@app.put("/projects/{project_id}", response_model=project_schema.Project, tags=["Projects"])
+def update_project_endpoint(project_id: int, project: project_schema.ProjectUpdate, db: Session = Depends(get_db)):
+    db_project = crud.update_project(db, project_id=project_id, project_update=project)
+    if db_project is None: 
+        raise HTTPException(status_code=404, detail="Project not found")
+    return db_project
+
+@app.delete("/projects/{project_id}", response_model=project_schema.Project, tags=["Projects"])
+def delete_project_endpoint(project_id: int, db: Session = Depends(get_db)):
+    db_project = crud.delete_project(db, project_id=project_id)
+    if db_project is None: 
+        raise HTTPException(status_code=404, detail="Project not found")
+    return db_project
+
+# --- Endpoints per le FONTI ---
+@app.post("/projects/{project_id}/sources/", response_model=source_schema.Source, tags=["Sources"])
+def create_source_for_project_endpoint(project_id: int, source: source_schema.SourceCreate, db: Session = Depends(get_db)):
+    db_project = crud.get_project(db, project_id=project_id)
+    if db_project is None: 
+        raise HTTPException(status_code=404, detail="Project not found")
+    return crud.create_project_source(db=db, source=source, project_id=project_id)
+
+@app.get("/projects/{project_id}/sources/", response_model=List[source_schema.Source], tags=["Sources"])
+def read_sources_for_project_endpoint(project_id: int, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    db_project = crud.get_project(db, project_id=project_id)
+    if db_project is None: 
+        raise HTTPException(status_code=404, detail="Project not found")
+    return crud.get_sources_for_project(db=db, project_id=project_id, skip=skip, limit=limit)
+
+@app.put("/sources/{source_id}", response_model=source_schema.Source, tags=["Sources"])
+def update_source_content_endpoint(source_id: int, source_update: source_schema.SourceUpdate, db: Session = Depends(get_db)):
+    db_source = crud.update_source_content(db, source_id=source_id, content=source_update.content)
+    if db_source is None: 
+        raise HTTPException(status_code=404, detail="Source not found")
+    return db_source
+
+# === FRONTEND ROUTES ===
+@app.get("/", response_class=HTMLResponse, tags=["Frontend"])
+async def dashboard_redirect():
+    return RedirectResponse(url="/dashboard")
+
+@app.get("/dashboard", response_class=HTMLResponse, tags=["Frontend"])
+async def dashboard_main(request: Request, db: Session = Depends(get_db)):
+    try:
+        projects = crud.get_projects(db)
+        total_projects = len(projects)
+        total_sources = sum(len(p.sources) for p in projects)
+        sources_with_content = sum(1 for p in projects for s in p.sources if s.content)
+
+        stats = {
+            "total_projects": total_projects,
+            "total_sources": total_sources,
+            "sources_with_content": sources_with_content,
+            "sources_without_content": total_sources - sources_with_content
+        }
+
+        return templates.TemplateResponse("dashboard.html", {
+            "request": request,
+            "stats": stats,
+            "projects": projects
+        })
+    except Exception as e:
+        return HTMLResponse(f"<h1>Dashboard Error: {str(e)}</h1>")
+
+@app.get("/manage-projects", response_class=HTMLResponse, tags=["Frontend"])
+async def view_projects(request: Request, db: Session = Depends(get_db)):
+    try:
+        projects = crud.get_projects(db)
+        return templates.TemplateResponse("projects.html", {
+            "request": request,
+            "projects": projects
+        })
+    except Exception as e:
+        return HTMLResponse(f"<h1>Projects Error: {str(e)}</h1>")
+
+@app.get("/search/view", response_class=HTMLResponse, tags=["Frontend"])
+async def search_page(request: Request):
+    try:
+        return templates.TemplateResponse("search.html", {"request": request})
+    except Exception:
+        return HTMLResponse("<h1>Search form</h1><form action='/search/results' method='post'><input name='q' required><button type='submit'>Search</button></form>")
+
+@app.post("/search/results", response_class=HTMLResponse, tags=["Frontend"])
+async def search_results(request: Request, q: str = Form(...), db: Session = Depends(get_db)):
+    try:
+        results = crud.search_sources_content(db=db, query=q)
+        return HTMLResponse(f"<h1>Results for: {q}</h1><p>Found {len(results)} results</p><a href='/search/view'>← Back</a>")
+    except Exception as e:
+        return HTMLResponse(f"<h1>Search Error: {str(e)}</h1>")
+
+@app.get("/import", response_class=HTMLResponse, tags=["Frontend"])
+async def import_page(request: Request):
+    try:
+        return templates.TemplateResponse("import.html", {"request": request})
+    except Exception:
+        return HTMLResponse("<h1>Import</h1><form action='/import/excel' method='post' enctype='multipart/form-data'><input name='project_name' placeholder='Project name' required><input type='file' name='file' accept='.xlsx,.xls' required><button type='submit'>Import</button></form>")
+
+@app.post("/import/excel", tags=["Frontend"])
+async def import_excel_file(file: UploadFile = File(...), project_name: str = Form(...), db: Session = Depends(get_db)):
+    try:
+        if not file.filename.endswith(('.xlsx', '.xls')):
+            return HTMLResponse("<h1>Error: File must be Excel format</h1>")
+
+        contents = await file.read()
+        df = pd.read_excel(contents)
+
+        # Create or get project
+        project = None
+        projects = crud.get_projects(db)
+        for p in projects:
+            if p.name.lower() == project_name.lower():
+                project = p
+                break
+
+        if not project:
+            project_data = project_schema.ProjectCreate(name=project_name, description=f"Imported from {file.filename}")
+            project = crud.create_project(db, project_data)
+
+        # Import sources
+        imported_count = 0
+        for _, row in df.iterrows():
+            title = str(row.get('Nome', row.get('Title', row.get('name', ''))))
+            url = str(row.get('URL', row.get('Url', row.get('url', ''))))
+
+            if title and url and title != 'nan' and url != 'nan':
+                source_data = source_schema.SourceCreate(title=title, url=url, project_id=project.id)
+                try:
+                    crud.create_source(db, source_data)
+                    imported_count += 1
+                except:
+                    pass
+
+        return HTMLResponse(f"<h1>Import Success</h1><p>Imported {imported_count} sources to project '{project_name}'</p><a href='/dashboard'>← Dashboard</a>")
+
+    except Exception as e:
+        return HTMLResponse(f"<h1>Import Error: {str(e)}</h1>")
+
+@app.get("/api/stats", tags=["Frontend API"])
+async def get_dashboard_stats(db: Session = Depends(get_db)):
+    try:
+        projects = crud.get_projects(db)
+        total_projects = len(projects)
+        total_sources = sum(len(p.sources) for p in projects)
+        sources_with_content = sum(1 for p in projects for s in p.sources if s.content)
+
+        return {
+            "total_projects": total_projects,
+            "total_sources": total_sources,
+            "sources_with_content": sources_with_content,
+            "sources_without_content": total_sources - sources_with_content
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+# --- Run Server ---
+if __name__ == "__main__":
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+
+============================================================
+SCRIPT DISPONIBILI
+============================================================
+./improved_crawler.py
+./improved_db_setup.py
+./setup_frontend_script.py
+./venv/lib/python3.13/site-packages/weasel/cli/run.py
+./venv/lib/python3.13/site-packages/catalogue/_importlib_metadata/_compat.py
+./venv/lib/python3.13/site-packages/catalogue/_importlib_metadata/__init__.py
+./venv/lib/python3.13/site-packages/murmurhash/tests/test_import.py
+./venv/lib/python3.13/site-packages/sqlalchemy/orm/descriptor_props.py
+./venv/lib/python3.13/site-packages/thinc/tests/test_import__all__.py
+./venv/lib/python3.13/site-packages/thinc/tests/layers/test_torchscriptwrapper.py
+
+============================================================
+FILE ESEGUIBILI
+============================================================
+./proxmox_firewall_config.sh
+./network_connectivity_test.sh
+./start_network_server.sh
+./comprehensive_platform_analysis.sh
+./platform_debug_toolkit.sh
+./venv/lib/python3.13/site-packages/numpy/testing/print_coercion_tables.py
+./venv/lib/python3.13/site-packages/tqdm/completion.sh
+./scripts/ScriptsBackup/env_template.sh
+./env_template.sh
+./proxmox_debug_commands.sh
+
+============================================================
+LOG DIRECTORY
+============================================================
+Directory logs non trovata
+
+============================================================
+ULTIMI LOG
+============================================================
+Nessun file log trovato
+
+============================================================
+DIMENSIONI DIRECTORY PRINCIPALI
+============================================================
+1,2G	.
+16K	alembic/
+420K	app/
+16K	platform_docs_20250618_204452/
+60K	platform_docs_20250618_205757/
+352K	scripts/
+1,2G	venv/
+
+============================================================
+INFO SISTEMA
+============================================================
+Linux enzo-ubuntu-proxmox 6.14.0-15-generic #15-Ubuntu SMP PREEMPT_DYNAMIC Sun Apr  6 15:05:05 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+
+============================================================
+SPAZIO DISCO
+============================================================
+File system     Dim. Usati Dispon. Uso% Montato su
+tmpfs           743M  1,5M    742M   1% /run
+/dev/sda2        63G   26G     35G  43% /
+tmpfs           3,7G  1,1M    3,7G   1% /dev/shm
+tmpfs           5,0M     0    5,0M   0% /run/lock
+tmpfs           1,0M     0    1,0M   0% /run/credentials/systemd-journald.service
+tmpfs           1,0M     0    1,0M   0% /run/credentials/systemd-resolved.service
+tmpfs           3,7G   16K    3,7G   1% /tmp
+tmpfs           743M   92K    743M   1% /run/user/119
+tmpfs           743M   80K    743M   1% /run/user/1000
+
+============================================================
+MEMORIA SISTEMA
+============================================================
+totale  utilizzata      libera   condivisa  buff/cache      dispon
+Mem:           7,3Gi       1,2Gi       334Mi        30Mi       6,1Gi       6,1Gi
+Swap:          4,0Gi          0B       4,0Gi
+
+============================================================
+CONTENUTO COMPLETO app/main.py
+============================================================
+import uvicorn
+from fastapi import FastAPI, Depends, HTTPException, Query, Request, Form, File, UploadFile
+from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from sqlalchemy.orm import Session
+from typing import List, Optional
+from pathlib import Path
+import pandas as pd
+
+from .core.database import get_db
+from . import crud
+from .schemas import project as project_schema, source as source_schema
+
+# Create FastAPI app instance
+app = FastAPI(
+    title="AI Augmented Research Platform",
+    description="Backend API for the research platform",
+    version="0.3.0"
+)
+
+# Setup template e static files
+static_dir = Path("app/static")
+templates_dir = Path("app/templates")
+static_dir.mkdir(exist_ok=True)
+templates_dir.mkdir(exist_ok=True)
+
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
+templates = Jinja2Templates(directory=templates_dir)
+
+# --- Endpoint per la RICERCA ---
+@app.get("/search/", response_model=List[source_schema.Source], tags=["Search"])
+def search_in_sources(q: str = Query(..., min_length=3), db: Session = Depends(get_db)):
+    """
+    Esegue una ricerca full-text nel contenuto di tutte le fonti.
+    """
+    results = crud.search_sources_content(db=db, query=q)
+    return results
+
+# --- Endpoints per PROGETTI ---
+@app.post("/projects/", response_model=project_schema.Project, tags=["Projects"])
+def create_project_endpoint(project: project_schema.ProjectCreate, db: Session = Depends(get_db)):
+    return crud.create_project(db=db, project=project)
+
+@app.get("/projects/", response_model=List[project_schema.Project], tags=["Projects"])
+def read_projects_endpoint(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    return crud.get_projects(db, skip=skip, limit=limit)
+
+@app.get("/projects/{project_id}", response_model=project_schema.Project, tags=["Projects"])
+def read_project_endpoint(project_id: int, db: Session = Depends(get_db)):
+    db_project = crud.get_project(db, project_id=project_id)
+    if db_project is None: 
+        raise HTTPException(status_code=404, detail="Project not found")
+    return db_project
+
+@app.put("/projects/{project_id}", response_model=project_schema.Project, tags=["Projects"])
+def update_project_endpoint(project_id: int, project: project_schema.ProjectUpdate, db: Session = Depends(get_db)):
+    db_project = crud.update_project(db, project_id=project_id, project_update=project)
+    if db_project is None: 
+        raise HTTPException(status_code=404, detail="Project not found")
+    return db_project
+
+@app.delete("/projects/{project_id}", response_model=project_schema.Project, tags=["Projects"])
+def delete_project_endpoint(project_id: int, db: Session = Depends(get_db)):
+    db_project = crud.delete_project(db, project_id=project_id)
+    if db_project is None: 
+        raise HTTPException(status_code=404, detail="Project not found")
+    return db_project
+
+# --- Endpoints per le FONTI ---
+@app.post("/projects/{project_id}/sources/", response_model=source_schema.Source, tags=["Sources"])
+def create_source_for_project_endpoint(project_id: int, source: source_schema.SourceCreate, db: Session = Depends(get_db)):
+    db_project = crud.get_project(db, project_id=project_id)
+    if db_project is None: 
+        raise HTTPException(status_code=404, detail="Project not found")
+    return crud.create_project_source(db=db, source=source, project_id=project_id)
+
+@app.get("/projects/{project_id}/sources/", response_model=List[source_schema.Source], tags=["Sources"])
+def read_sources_for_project_endpoint(project_id: int, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    db_project = crud.get_project(db, project_id=project_id)
+    if db_project is None: 
+        raise HTTPException(status_code=404, detail="Project not found")
+    return crud.get_sources_for_project(db=db, project_id=project_id, skip=skip, limit=limit)
+
+@app.put("/sources/{source_id}", response_model=source_schema.Source, tags=["Sources"])
+def update_source_content_endpoint(source_id: int, source_update: source_schema.SourceUpdate, db: Session = Depends(get_db)):
+    db_source = crud.update_source_content(db, source_id=source_id, content=source_update.content)
+    if db_source is None: 
+        raise HTTPException(status_code=404, detail="Source not found")
+    return db_source
+
+# === FRONTEND ROUTES ===
+@app.get("/", response_class=HTMLResponse, tags=["Frontend"])
+async def dashboard_redirect():
+    return RedirectResponse(url="/dashboard")
+
+@app.get("/dashboard", response_class=HTMLResponse, tags=["Frontend"])
+async def dashboard_main(request: Request, db: Session = Depends(get_db)):
+    try:
+        projects = crud.get_projects(db)
+        total_projects = len(projects)
+        total_sources = sum(len(p.sources) for p in projects)
+        sources_with_content = sum(1 for p in projects for s in p.sources if s.content)
+
+        stats = {
+            "total_projects": total_projects,
+            "total_sources": total_sources,
+            "sources_with_content": sources_with_content,
+            "sources_without_content": total_sources - sources_with_content
+        }
+
+        return templates.TemplateResponse("dashboard.html", {
+            "request": request,
+            "stats": stats,
+            "projects": projects
+        })
+    except Exception as e:
+        return HTMLResponse(f"<h1>Dashboard Error: {str(e)}</h1>")
+
+@app.get("/manage-projects", response_class=HTMLResponse, tags=["Frontend"])
+async def view_projects(request: Request, db: Session = Depends(get_db)):
+    try:
+        projects = crud.get_projects(db)
+        return templates.TemplateResponse("projects.html", {
+            "request": request,
+            "projects": projects
+        })
+    except Exception as e:
+        return HTMLResponse(f"<h1>Projects Error: {str(e)}</h1>")
+
+@app.get("/search/view", response_class=HTMLResponse, tags=["Frontend"])
+async def search_page(request: Request):
+    try:
+        return templates.TemplateResponse("search.html", {"request": request})
+    except Exception:
+        return HTMLResponse("<h1>Search form</h1><form action='/search/results' method='post'><input name='q' required><button type='submit'>Search</button></form>")
+
+@app.post("/search/results", response_class=HTMLResponse, tags=["Frontend"])
+async def search_results(request: Request, q: str = Form(...), db: Session = Depends(get_db)):
+    try:
+        results = crud.search_sources_content(db=db, query=q)
+        return HTMLResponse(f"<h1>Results for: {q}</h1><p>Found {len(results)} results</p><a href='/search/view'>← Back</a>")
+    except Exception as e:
+        return HTMLResponse(f"<h1>Search Error: {str(e)}</h1>")
+
+@app.get("/import", response_class=HTMLResponse, tags=["Frontend"])
+async def import_page(request: Request):
+    try:
+        return templates.TemplateResponse("import.html", {"request": request})
+    except Exception:
+        return HTMLResponse("<h1>Import</h1><form action='/import/excel' method='post' enctype='multipart/form-data'><input name='project_name' placeholder='Project name' required><input type='file' name='file' accept='.xlsx,.xls' required><button type='submit'>Import</button></form>")
+
+@app.post("/import/excel", tags=["Frontend"])
+async def import_excel_file(file: UploadFile = File(...), project_name: str = Form(...), db: Session = Depends(get_db)):
+    try:
+        if not file.filename.endswith(('.xlsx', '.xls')):
+            return HTMLResponse("<h1>Error: File must be Excel format</h1>")
+
+        contents = await file.read()
+        df = pd.read_excel(contents)
+
+        # Create or get project
+        project = None
+        projects = crud.get_projects(db)
+        for p in projects:
+            if p.name.lower() == project_name.lower():
+                project = p
+                break
+
+        if not project:
+            project_data = project_schema.ProjectCreate(name=project_name, description=f"Imported from {file.filename}")
+            project = crud.create_project(db, project_data)
+
+        # Import sources
+        imported_count = 0
+        for _, row in df.iterrows():
+            title = str(row.get('Nome', row.get('Title', row.get('name', ''))))
+            url = str(row.get('URL', row.get('Url', row.get('url', ''))))
+
+            if title and url and title != 'nan' and url != 'nan':
+                source_data = source_schema.SourceCreate(title=title, url=url, project_id=project.id)
+                try:
+                    crud.create_source(db, source_data)
+                    imported_count += 1
+                except:
+                    pass
+
+        return HTMLResponse(f"<h1>Import Success</h1><p>Imported {imported_count} sources to project '{project_name}'</p><a href='/dashboard'>← Dashboard</a>")
+
+    except Exception as e:
+        return HTMLResponse(f"<h1>Import Error: {str(e)}</h1>")
+
+@app.get("/api/stats", tags=["Frontend API"])
+async def get_dashboard_stats(db: Session = Depends(get_db)):
+    try:
+        projects = crud.get_projects(db)
+        total_projects = len(projects)
+        total_sources = sum(len(p.sources) for p in projects)
+        sources_with_content = sum(1 for p in projects for s in p.sources if s.content)
+
+        return {
+            "total_projects": total_projects,
+            "total_sources": total_sources,
+            "sources_with_content": sources_with_content,
+            "sources_without_content": total_sources - sources_with_content
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+# --- Run Server ---
+if __name__ == "__main__":
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+
+============================================================
+CONTENUTO COMPLETO app/crud.py
+============================================================
+from sqlalchemy.orm import Session
+from sqlalchemy import func
+
+# Importa i modelli e gli schemi usando alias per chiarezza
+from .models import project as project_model, source as source_model, entity as entity_model
+from .schemas import project as project_schema, source as source_schema, entity as entity_schema
+
+# --- CRUD per i Progetti ---
+
+def get_project(db: Session, project_id: int):
+    return db.query(project_model.Project).filter(project_model.Project.id == project_id).first()
+
+def get_projects(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(project_model.Project).offset(skip).limit(limit).all()
+
+def create_project(db: Session, project: project_schema.ProjectCreate):
+    db_project = project_model.Project(name=project.name, description=project.description)
+    db.add(db_project)
+    db.commit()
+    db.refresh(db_project)
+    return db_project
+
+def update_project(db: Session, project_id: int, project_update: project_schema.ProjectUpdate):
+    db_project = get_project(db, project_id)
+    if not db_project:
+        return None
+    update_data = project_update.dict(exclude_unset=True)
+    for key, value in update_data.items():
+        setattr(db_project, key, value)
+    db.commit()
+    db.refresh(db_project)
+    return db_project
+
+def delete_project(db: Session, project_id: int):
+    db_project = get_project(db, project_id)
+    if db_project:
+        db.delete(db_project)
+        db.commit()
+    return db_project
+
+# --- CRUD per le Fonti ---
+
+def get_source(db: Session, source_id: int):
+    return db.query(source_model.Source).filter(source_model.Source.id == source_id).first()
+
+def get_sources_for_project(db: Session, project_id: int, skip: int = 0, limit: int = 100):
+    return db.query(source_model.Source).filter(source_model.Source.project_id == project_id).offset(skip).limit(limit).all()
+
+def create_project_source(db: Session, source: source_schema.SourceCreate, project_id: int):
+    db_source = source_model.Source(**source.dict(), project_id=project_id)
+    db.add(db_source)
+    db.commit()
+    db.refresh(db_source)
+    return db_source
+
+def update_source_content(db: Session, source_id: int, content: str):
+    db_source = get_source(db, source_id=source_id)
+    if not db_source:
+        return None
+    db_source.content = content
+    db.commit()
+    db.refresh(db_source)
+    return db_source
+
+# --- Funzione di Ricerca ---
+
+def search_sources_content(db: Session, query: str, skip: int = 0, limit: int = 100):
+    search_query = func.websearch_to_tsquery('italian', query)
+    return db.query(source_model.Source).filter(
+        source_model.Source.content.isnot(None),
+        func.to_tsvector('italian', source_model.Source.content).op('@@')(search_query)
+    ).offset(skip).limit(limit).all()
+
+# --- Funzioni CRUD per le Entità ---
+
+def create_source_entity(db: Session, entity: entity_schema.EntityCreate, source_id: int):
+    existing_entity = db.query(entity_model.Entity).filter_by(text=entity.text, label=entity.label, source_id=source_id).first()
+    if existing_entity:
+        return existing_entity
+    db_entity = entity_model.Entity(**entity.dict(), source_id=source_id)
+    db.add(db_entity)
+    db.commit()
+    db.refresh(db_entity)
+    return db_entity
+
+============================================================
+CONTENUTO COMPLETO app/core/database.py
+============================================================
+import os
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+
+# Load DATABASE_URL from .env file
+load_dotenv()
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL not set in .env file")
+
+# Create the SQLAlchemy engine
+engine = create_engine(DATABASE_URL)
+
+# Create a configured "Session" class
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+# Dependency to get a DB session for each request
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+============================================================
+CONTENUTO COMPLETO .env
+============================================================
+DATABASE_URL="postgresql+psycopg2://platdev_user:1q2w3e4r5t6y@localhost/platdev_db"
+
+============================================================
+TEMPLATE app/templates/dashboard.html
+============================================================
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1 class="page-title">Dashboard</h1>
+    <p class="page-subtitle">Piattaforma AI di ricerca - Accesso rete locale</p>
+</div>
+
+{% if stats %}
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-label">Progetti Totali</div>
+        <div class="stat-value">{{ stats.total_projects }}</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Fonti Totali</div>
+        <div class="stat-value">{{ stats.total_sources }}</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Con Contenuto</div>
+        <div class="stat-value">{{ stats.sources_with_content }}</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Da Elaborare</div>
+        <div class="stat-value">{{ stats.sources_without_content }}</div>
+    </div>
+</div>
+{% endif %}
+
+<div class="actions-section">
+    <h2 class="section-title">🚀 Azioni Rapide</h2>
+    <div class="actions-grid">
+        <div class="action-card">
+            <div class="action-header">
+                <span class="action-icon">📁</span>
+                <span class="action-title">Gestisci Progetti</span>
+            </div>
+            <div class="action-description">
+                Visualizza e gestisci tutti i progetti di ricerca
+            </div>
+            <a href="/manage-projects" class="btn btn-primary">Visualizza Progetti</a>
+        </div>
+
+        <div class="action-card">
+            <div class="action-header">
+                <span class="action-icon">📥</span>
+                <span class="action-title">Importa Dati</span>
+            </div>
+            <div class="action-description">
+                Carica fonti da file Excel, CSV o altri formati
+            </div>
+            <a href="/import" class="btn btn-primary">Importa File</a>
+        </div>
+
+        <div class="action-card">
+            <div class="action-header">
+                <span class="action-icon">🔍</span>
+                <span class="action-title">Ricerca Contenuti</span>
+            </div>
+            <div class="action-description">
+                Cerca nel contenuto di tutte le fonti elaborate
+            </div>
+            <a href="/search/view" class="btn btn-primary">Avvia Ricerca</a>
+        </div>
+
+        <div class="action-card">
+            <div class="action-header">
+                <span class="action-icon">📊</span>
+                <span class="action-title">API Documentation</span>
+            </div>
+            <div class="action-description">
+                Documentazione tecnica API per integrazioni
+            </div>
+            <a href="/docs" class="btn btn-primary" target="_blank">Apri Docs</a>
+        </div>
+    </div>
+</div>
+
+{% if projects %}
+<div class="actions-section">
+    <h2 class="section-title">📁 Progetti Recenti</h2>
+    <div class="projects-list">
+        {% for project in projects[:5] %}
+        <div class="project-item">
+            <div class="project-info">
+                <h3>{{ project.name }}</h3>
+                <div class="project-meta">
+                    {{ project.description or 'Nessuna descrizione' }} • {{ project.sources|length }} fonti
+                </div>
+            </div>
+            <div>
+                <a href="/projects/{{ project.id }}/view" class="btn btn-secondary">Visualizza</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+// Aggiorna statistiche ogni 30 secondi
+setInterval(async function() {
+    try {
+        const response = await fetch(API_BASE_URL + '/api/stats');
+        const stats = await response.json();
+        
+        const statValues = document.querySelectorAll('.stat-value');
+        if (statValues.length >= 4) {
+            statValues[0].textContent = stats.total_projects;
+            statValues[1].textContent = stats.total_sources;
+            statValues[2].textContent = stats.sources_with_content;
+            statValues[3].textContent = stats.sources_without_content;
+        }
+    } catch (error) {
+        console.log('Errore aggiornamento statistiche:', error);
+    }
+}, 30000);
+
+// Test connettività di rete
+async function testNetworkConnectivity() {
+    try {
+        const response = await fetch(API_BASE_URL + '/api/stats');
+        if (response.ok) {
+            console.log('✅ Connessione di rete OK');
+            return true;
+        }
+    } catch (error) {
+        console.error('❌ Errore connessione di rete:', error);
+        return false;
+    }
+}
+
+// Test iniziale
+document.addEventListener('DOMContentLoaded', function() {
+    testNetworkConnectivity();
+});
+{% endblock %}
+
+============================================================
+TEMPLATE app/templates/search.html
+============================================================
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <h1 class="page-title">Ricerca Contenuti</h1>
+    <p class="page-subtitle">Cerca nel contenuto di tutte le fonti elaborate</p>
+</div>
+
+<div class="action-card" style="max-width: 600px; margin: 0 auto;">
+    <form action="/search/results" method="post">
+        <div class="form-group">
+            <label class="form-label">Termini di ricerca</label>
+            <input type="text" name="q" class="form-input" required minlength="3" 
+                   placeholder="Inserisci almeno 3 caratteri...">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">🔍 Cerca</button>
+    </form>
+</div>
+{% endblock %}
+
+============================================================
+TEMPLATE app/templates/import.html
+============================================================
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <h1 class="page-title">Importazione Dati</h1>
+    <p class="page-subtitle">Importa fonti da file Excel o CSV</p>
+</div>
+
+<div class="action-card" style="max-width: 600px; margin: 0 auto;">
+    <form action="/import/excel" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="form-label">Nome Progetto</label>
+            <input type="text" name="project_name" class="form-input" required 
+                   placeholder="Es: Ricerca Mercato 2024">
+        </div>
+        <div class="form-group">
+            <label class="form-label">File Excel</label>
+            <input type="file" name="file" class="form-input" required accept=".xlsx,.xls">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">📥 Importa File</button>
+    </form>
+</div>
+
+<div class="alert info" style="max-width: 600px; margin: 32px auto 0;">
+    <strong>Formato supportato:</strong><br>
+    Il file Excel deve contenere almeno le colonne 'Nome' e 'URL'.
+</div>
+{% endblock %}
+
+============================================================
+TEMPLATE app/templates/projects.html
+============================================================
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <h1 class="page-title">Gestione Progetti</h1>
+    <p class="page-subtitle">Tutti i progetti di ricerca</p>
+</div>
+
+{% if projects %}
+<div class="projects-list">
+    {% for project in projects %}
+    <div class="project-item">
+        <div class="project-info">
+            <h3>{{ project.name }}</h3>
+            <div class="project-meta">
+                {{ project.description or 'Nessuna descrizione' }} • 
+                {{ project.sources|length }} fonti • 
+                Creato il {{ project.created_at.strftime('%d/%m/%Y') }}
+            </div>
+        </div>
+        <div>
+            <a href="/projects/{{ project.id }}/view" class="btn btn-primary">Visualizza</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="alert info">
+    <strong>Nessun progetto trovato</strong><br>
+    Inizia creando il tuo primo progetto dalla dashboard.
+</div>
+{% endif %}
+{% endblock %}
+
+============================================================
+TEMPLATE app/templates/base.html
+============================================================
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AI Research Platform{% endblock %}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #0d1117;
+            color: #e6edf3;
+            line-height: 1.5;
+        }
+        .header {
+            background-color: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #f0f6fc;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .logo::before {
+            content: "🚀";
+            margin-right: 8px;
+            font-size: 24px;
+        }
+        .nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        .nav-link {
+            color: #e6edf3;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+            font-size: 14px;
+        }
+        .nav-link:hover {
+            background-color: #21262d;
+            color: #f0f6fc;
+        }
+        .nav-link.active {
+            background-color: #1f6feb;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+        .page-header {
+            margin-bottom: 32px;
+        }
+        .page-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 8px;
+        }
+        .page-subtitle {
+            color: #7d8590;
+            font-size: 16px;
+        }
+        .network-info {
+            background: linear-gradient(135deg, #1f6feb, #7c3aed);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+            color: white;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stat-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
+            transition: border-color 0.15s ease;
+        }
+        .stat-card:hover {
+            border-color: #7d8590;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #7d8590;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #f0f6fc;
+        }
+        .actions-section {
+            margin-bottom: 32px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .action-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+            transition: all 0.15s ease;
+        }
+        .action-card:hover {
+            border-color: #7d8590;
+            transform: translateY(-1px);
+        }
+        .action-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .action-icon {
+            margin-right: 12px;
+            font-size: 20px;
+        }
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f0f6fc;
+        }
+        .action-description {
+            color: #7d8590;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: 1px solid transparent;
+            text-decoration: none;
+            margin: 4px 8px 4px 0;
+        }
+        .btn-primary {
+            background-color: #238636;
+            color: #ffffff;
+            border-color: #238636;
+        }
+        .btn-primary:hover {
+            background-color: #2ea043;
+            border-color: #2ea043;
+        }
+        .btn-secondary {
+            background-color: #21262d;
+            color: #f0f6fc;
+            border-color: #30363d;
+        }
+        .btn-secondary:hover {
+            background-color: #30363d;
+            border-color: #7d8590;
+        }
+        .projects-list {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .project-item {
+            padding: 16px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.15s ease;
+        }
+        .project-item:last-child {
+            border-bottom: none;
+        }
+        .project-item:hover {
+            background-color: #21262d;
+        }
+        .project-info h3 {
+            color: #f0f6fc;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .project-meta {
+            color: #7d8590;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-label {
+            display: block;
+            color: #f0f6fc;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 8px 12px;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #e6edf3;
+            font-size: 14px;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #1f6feb;
+        }
+        .alert {
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+        .alert.info {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            color: #7d8590;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/dashboard" class="logo">AI Research Platform</a>
+            <nav class="nav">
+                <a href="/dashboard" class="nav-link {% if request.url.path == '/dashboard' %}active{% endif %}">Dashboard</a>
+                <a href="/manage-projects" class="nav-link {% if '/manage-projects' in request.url.path %}active{% endif %}">Progetti</a>
+                <a href="/search/view" class="nav-link {% if '/search' in request.url.path %}active{% endif %}">Ricerca</a>
+                <a href="/import" class="nav-link {% if '/import' in request.url.path %}active{% endif %}">Importa</a>
+                <a href="/docs" class="nav-link" target="_blank">API</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="network-info">
+            <strong>🌐 Accesso di Rete Attivo</strong><br>
+            Server VM: 192.168.1.20:8000 • Accessibile da tutta la rete locale
+        </div>
+
+        {% block content %}
+        <!-- Contenuto specifico della pagina -->
+        {% endblock %}
+    </main>
+
+    <script>
+        // Configurazione per accesso di rete
+        const API_BASE_URL = "http://192.168.1.20:8000";
+        
+        {% block scripts %}
+        {% endblock %}
+    </script>
+</body>
+</html>
+
+============================================================
+ANALISI SCHEMA DATABASE
+============================================================
+Tabelle esistenti: ['projects', 'sources', 'entities']
+
+--- Tabella: projects ---
+Errore analisi database: name 'name' is not defined

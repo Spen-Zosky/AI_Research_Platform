@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AI Research Platform{% endblock %}</title>
+    
+    <!-- CSS Framework -->
+    <link rel="stylesheet" href="/static/css/modern_design_system.css">
+    <link rel="stylesheet" href="/static/css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Page Specific Styles -->
+    {% block styles %}{% endblock %}
+    
+    <style>
+        /* CSS Custom Properties for Theme System */
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --bg-elevated: #30363d;
+            
+            --text-primary: #f0f6fc;
+            --text-secondary: #e6edf3;
+            --text-tertiary: #7d8590;
+            
+            --border-subtle: #30363d;
+            --border-default: #7d8590;
+            --border-strong: #f0f6fc;
+            
+            --accent-blue: #1f6feb;
+            --accent-green: #238636;
+            --accent-orange: #f85149;
+            --accent-red: #f85149;
+            --accent-purple: #7c3aed;
+            
+            --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            
+            --radius-sm: 0.25rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --radius-full: 9999px;
+            
+            --transition-base: 0.2s ease;
+            
+            --z-sticky: 100;
+            --z-fixed: 200;
+            --z-modal: 1000;
+            --z-toast: 10000;
+        }
+        
+        /* Light theme */
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f6f8fa;
+            --bg-tertiary: #ffffff;
+            --bg-elevated: #ffffff;
+            
+            --text-primary: #24292f;
+            --text-secondary: #656d76;
+            --text-tertiary: #656d76;
+            
+            --border-subtle: #d0d7de;
+            --border-default: #d0d7de;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+            --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Cyberpunk theme */
+        [data-theme="cyberpunk"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a0a1a;
+            --bg-tertiary: #2a1a2a;
+            --bg-elevated: #1a1a2a;
+            
+            --text-primary: #00ffff;
+            --text-secondary: #ff00ff;
+            --text-tertiary: #ffff00;
+            
+            --accent-blue: #00ffff;
+            --accent-green: #ff00ff;
+            --accent-purple: #ffff00;
+            
+            --gradient-primary: linear-gradient(135deg, #00ffff, #ff00ff);
+        }
+        
+        /* Nature theme */
+        [data-theme="nature"] {
+            --bg-primary: #0f2419;
+            --bg-secondary: #1a3d29;
+            --bg-tertiary: #245d39;
+            --bg-elevated: #2d7d49;
+            
+            --text-primary: #a7f3d0;
+            --text-secondary: #6ee7b7;
+            --text-tertiary: #34d399;
+            
+            --accent-blue: #10b981;
+            --accent-green: #059669;
+            --accent-purple: #047857;
+            
+            --gradient-primary: linear-gradient(135deg, #10b981, #047857);
+        }
+        
+        /* Ocean theme */
+        [data-theme="ocean"] {
+            --bg-primary: #0c1b2a;
+            --bg-secondary: #1e3a5f;
+            --bg-tertiary: #2d5a87;
+            --bg-elevated: #3b7bb0;
+            
+            --text-primary: #bae6fd;
+            --text-secondary: #7dd3fc;
+            --text-tertiary: #38bdf8;
+            
+            --accent-blue: #0ea5e9;
+            --accent-green: #0284c7;
+            --accent-purple: #0369a1;
+            
+            --gradient-primary: linear-gradient(135deg, #0ea5e9, #0369a1);
+        }
+        
+        /* Fire theme */
+        [data-theme="fire"] {
+            --bg-primary: #2a0a0a;
+            --bg-secondary: #5f1e1e;
+            --bg-tertiary: #872d2d;
+            --bg-elevated: #b03b3b;
+            
+            --text-primary: #fecaca;
+            --text-secondary: #fca5a5;
+            --text-tertiary: #f87171;
+            
+            --accent-blue: #ef4444;
+            --accent-green: #dc2626;
+            --accent-purple: #b91c1c;
+            
+            --gradient-primary: linear-gradient(135deg, #ef4444, #b91c1c);
+        }
+        
+        /* Layout System */
+        .app-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+            transition: grid-template-columns var(--transition-base);
+        }
+        
+        .app-layout.sidebar-collapsed {
+            grid-template-columns: 70px 1fr;
+        }
+        
+        .app-sidebar {
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            transition: all var(--transition-base);
+        }
+        
+        .app-main {
+            background: var(--bg-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .app-header {
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: var(--space-4) var(--space-6);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: var(--z-sticky);
+        }
+        
+        .app-content {
+            flex: 1;
+            padding: var(--space-6);
+            max-width: 100%;
+        }
+        
+        /* Sidebar Components */
+        .sidebar-header {
+            padding: var(--space-6);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all var(--transition-base);
+        }
+        
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--text-lg);
+            font-weight: 700;
+        }
+        
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition-base);
+        }
+        
+        .brand-title {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .brand-subtitle {
+            font-size: var(--text-xs);
+            color: var(--text-tertiary);
+        }
+        
+        .sidebar-collapsed .brand-text {
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
+        }
+        
+        .sidebar-nav {
+            padding: var(--space-4) 0;
+        }
+        
+        .nav-section {
+            margin-bottom: var(--space-6);
+        }
+        
+        .nav-section-title {
+            padding: 0 var(--space-6) var(--space-2);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            letter-spacing: 0.05em;
+            transition: all var(--transition-base);
+        }
+        
+        .sidebar-collapsed .nav-section-title {
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-item {
+            margin: var(--space-1) var(--space-4);
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3) var(--space-4);
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            transform: translateX(2px);
+        }
+        
+        .nav-link.active {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-base);
+        }
+        
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: white;
+        }
+        
+        .nav-icon {
+            width: 20px;
+            text-align: center;
+            font-size: var(--text-lg);
+            flex-shrink: 0;
+        }
+        
+        .nav-text {
+            transition: all var(--transition-base);
+        }
+        
+        .sidebar-collapsed .nav-text {
+            opacity: 0;
+            width: 0;
+        }
+        
+        /* Header Components */
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .sidebar-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: var(--text-lg);
+            padding: var(--space-2);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+        
+        .sidebar-toggle:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--text-sm);
+        }
+        
+        .breadcrumb-item {
+            color: var(--text-tertiary);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+        
+        .breadcrumb-item:hover {
+            color: var(--text-primary);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        .breadcrumb-separator {
+            color: var(--text-tertiary);
+            font-size: var(--text-xs);
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .header-search {
+            position: relative;
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: var(--space-3) var(--space-4) var(--space-3) var(--space-12);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            font-size: var(--text-sm);
+            color: var(--text-primary);
+            transition: all var(--transition-base);
+        }
+        
+        .search-input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            outline: none;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: var(--space-4);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-tertiary);
+            font-size: var(--text-sm);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .header-btn {
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-btn:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .theme-switcher {
+            position: relative;
+        }
+        
+        .theme-btn {
+            background: none;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: var(--text-xs);
+            transition: all var(--transition-base);
+        }
+        
+        .theme-btn:hover {
+            border-color: var(--border-default);
+            color: var(--text-primary);
+        }
+        
+        /* Network Status */
+        .network-status {
+            position: fixed;
+            bottom: var(--space-4);
+            right: var(--space-4);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            padding: var(--space-3) var(--space-4);
+            font-size: var(--text-xs);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            z-index: var(--z-fixed);
+            transition: all var(--transition-base);
+        }
+        
+        .network-status.online {
+            border-color: var(--accent-green);
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Content Area Styles */
+        .page-header {
+            margin-bottom: var(--space-8);
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-subtitle {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+        }
+        
+        /* Network Info Banner */
+        .network-info {
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            margin-bottom: var(--space-6);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .network-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .app-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                z-index: var(--z-modal);
+                transform: translateX(-100%);
+                width: 280px;
+                box-shadow: var(--shadow-2xl);
+            }
+            
+            .app-sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .sidebar-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: calc(var(--z-modal) - 1);
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-base);
+            }
+            
+            .sidebar-overlay.open {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .app-header {
+                padding: var(--space-3) var(--space-4);
+            }
+            
+            .app-content {
+                padding: var(--space-4);
+            }
+            
+            .header-search {
+                max-width: 200px;
+            }
+            
+            .page-title {
+                font-size: var(--text-3xl);
+            }
+            
+            .breadcrumb {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body data-theme="{{ theme|default('dark') }}">
+    <!-- Sidebar Overlay (Mobile) -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- App Layout -->
+    <div class="app-layout" id="app-layout">
+        <!-- Sidebar -->
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="sidebar-header">
+                <a href="/dashboard" class="sidebar-brand">
+                    <div class="brand-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="brand-text">
+                        <div class="brand-title">AI Research</div>
+                        <div class="brand-subtitle">Platform v2.0</div>
+                    </div>
+                </a>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <!-- Main Navigation -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <div class="nav-item">
+                        <a href="/dashboard" class="nav-link {% if request.url.path == '/dashboard' %}active{% endif %}">
+                            <i class="nav-icon fas fa-chart-line"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/manage-projects" class="nav-link {% if '/manage-projects' in request.url.path %}active{% endif %}">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <span class="nav-text">Progetti</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/search/view" class="nav-link {% if '/search' in request.url.path %}active{% endif %}">
+                            <i class="nav-icon fas fa-search"></i>
+                            <span class="nav-text">Ricerca</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/import" class="nav-link {% if '/import' in request.url.path %}active{% endif %}">
+                            <i class="nav-icon fas fa-upload"></i>
+                            <span class="nav-text">Importa</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- System -->
+                <div class="nav-section">
+                    <div class="nav-section-title">System</div>
+                    <div class="nav-item">
+                        <a href="/docs" class="nav-link" target="_blank">
+                            <i class="nav-icon fas fa-code"></i>
+                            <span class="nav-text">API Docs</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="app-main">
+            <!-- Header -->
+            <header class="app-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle" onclick="platform.toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <nav class="breadcrumb">
+                        {% block breadcrumb %}
+                        <a href="/dashboard" class="breadcrumb-item">Home</a>
+                        <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+                        <span class="breadcrumb-item active">{% block page_name %}Dashboard{% endblock %}</span>
+                        {% endblock %}
+                    </nav>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-search">
+                        <i class="search-icon fas fa-search"></i>
+                        <input type="text" class="search-input" placeholder="Cerca progetti, fonti..." data-search>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <div class="theme-switcher">
+                            <button class="theme-btn" id="theme-btn">
+                                ?? Dark ?
+                            </button>
+                        </div>
+                        
+                        <button class="header-btn" id="notifications-btn">
+                            <i class="fas fa-bell"></i>
+                            <span style="position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background: var(--accent-red); border-radius: 50%; animation: pulse 2s infinite;"></span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Content Area -->
+            <div class="app-content">
+                <div class="network-info">
+                    <strong>?? Accesso di Rete Attivo</strong><br>
+                    Server VM: 192.168.1.20:8000  Accessibile da tutta la rete locale
+                </div>
+
+                {% block content %}
+                <!-- Page content will be inserted here -->
+                {% endblock %}
+            </div>
+        </main>
+    </div>
+    
+    <!-- Network Status Indicator -->
+    <div class="network-status online" id="network-status">
+        <div class="status-indicator"></div>
+        <span>192.168.1.20:8000</span>
+    </div>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+    
+    <!-- Modern Platform JavaScript -->
+    <script src="/static/js/modern_features.js"></script>
+    
+    <!-- Page Specific Scripts -->
+    {% block scripts %}{% endblock %}
+    
+    <!-- Global Configuration -->
+    <script>
+        // Configuration globale
+        window.APP_CONFIG = {
+            API_BASE_URL: "http://192.168.1.20:8000",
+            VERSION: "2.0.0",
+            THEME: "{{ theme|default('dark') }}",
+            DEBUG: {{ debug|default(false)|tojson }}
+        };
+        
+        // Wait for ModernPlatform to initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // The ModernPlatform class will auto-initialize
+            console.log('?? Platform ready!');
+        });
+        
+        // Mobile sidebar close on overlay click
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'sidebar-overlay') {
+                document.getElementById('app-sidebar').classList.remove('open');
+                e.target.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
